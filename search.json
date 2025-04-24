@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Welcome to my project showcase. Click on a card to explore the full details.\n\n \n\nExample Project\n\n\nAn end-to-end NLP system using RAG and LLaMA\n\n\n \n\nComing Soon\n\n\nAnother upcoming project will be featured here"
+  },
+  {
+    "objectID": "projects/placeholder1.html",
+    "href": "projects/placeholder1.html",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "projects/placeholder1.html#problem",
+    "href": "projects/placeholder1.html#problem",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
+  },
+  {
+    "objectID": "projects/placeholder1.html#approach",
+    "href": "projects/placeholder1.html#approach",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
+  },
+  {
+    "objectID": "projects/placeholder1.html#results",
+    "href": "projects/placeholder1.html#results",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
+  },
+  {
+    "objectID": "projects/placeholder1.html#tech-stack",
+    "href": "projects/placeholder1.html#tech-stack",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
+  },
+  {
+    "objectID": "projects/placeholder1.html#links",
+    "href": "projects/placeholder1.html#links",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "example-project.html",
+    "href": "example-project.html",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "example-project.html#problem",
+    "href": "example-project.html#problem",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
+  },
+  {
+    "objectID": "example-project.html#approach",
+    "href": "example-project.html#approach",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
+  },
+  {
+    "objectID": "example-project.html#results",
+    "href": "example-project.html#results",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
+  },
+  {
+    "objectID": "example-project.html#tech-stack",
+    "href": "example-project.html#tech-stack",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
+  },
+  {
+    "objectID": "example-project.html#links",
+    "href": "example-project.html#links",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m Mohamed El Ghali Benabou, a data scientist and applied mathematician with a deep interest in natural language processing, machine learning, and real-world applications of AI, especially in domains like ESG analytics, interactive AI systems, and intelligent search interfaces."
+  },
+  {
+    "objectID": "about.html#academic-background",
+    "href": "about.html#academic-background",
+    "title": "About Me",
+    "section": "Academic Background",
+    "text": "Academic Background\n\nMaster’s in Statistics and Econometrics, Mohammed V University, Rabat (2021–2023)\nBachelor’s in Mathematics, Jean-François Champollion University, Albi, France (2014–2015)\nPreparatory Classes for Engineering Schools – Salmane Al-Farissi, Morocco"
+  },
+  {
+    "objectID": "about.html#practical-experience",
+    "href": "about.html#practical-experience",
+    "title": "About Me",
+    "section": "Practical Experience",
+    "text": "Practical Experience\n\nFinal Project Intern at AIOX Labs – ToumAI Analytics\n\nBuilt a fine-tuned LLM to assess ESG impact of African companies\nScraped and processed multilingual data from media & social platforms\nApplied BERTopic, sentiment analysis, and visualization pipelines\n\nIntern at the Ministry of Maritime Fisheries – HR department\n(Earlier observational internship)"
+  },
+  {
+    "objectID": "about.html#personal-projects",
+    "href": "about.html#personal-projects",
+    "title": "About Me",
+    "section": "Personal Projects",
+    "text": "Personal Projects\n\nRAG Chatbot for Google Reviews (2024 - Ongoing)\nLocal NLP assistant for review summarization using BERTopic + LLaMA 3.2 + FastAPI\nNOVAI – Novel/News Scraping + Recommender (2024 - Ongoing)\nFull-stack app with RAG + LangChain for custom search and reading experience, with TTS, keyword interaction, and smart suggestions\nTitanic ML Competition\nExploratory classification project using Random Forest to identify survival factors\n\nYou can find these projects and others on my GitHub."
+  },
+  {
+    "objectID": "about.html#academic-projects",
+    "href": "about.html#academic-projects",
+    "title": "About Me",
+    "section": "Academic Projects",
+    "text": "Academic Projects\n\nUnsupervised Learning Algorithms – PCA, Clustering (R)\nSARIMA vs ML for Time Series Forecasting\nLife Expectancy vs Development Status\nMultivariate Studies with PCA, CA, MCA (SPSS)\n\nRead the reports here."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Me",
+    "section": "Skills",
+    "text": "Skills\nLanguages & Tools: Python, R, Scikit-Learn, Pandas, NumPy, PyTorch, TensorFlow, Keras, FastAPI, LangChain, SQL, Streamlit, PowerBI, SPSS, Git, Docker\nModeling & Theory: BERT, BERTopic, RAG, LSTM, CNN, HDBSCAN, CA/MCA, Econometrics\nWeb: FastAPI, Flask, aiohttp, BeautifulSoup, React (in progress)"
+  },
+  {
+    "objectID": "about.html#languages",
+    "href": "about.html#languages",
+    "title": "About Me",
+    "section": "Languages",
+    "text": "Languages\n\nArabic – Native\n\nFrench – Bilingual\n\nEnglish – Fluent (TOEIC: 950/990)"
+  },
+  {
+    "objectID": "about.html#personal-traits-interests",
+    "href": "about.html#personal-traits-interests",
+    "title": "About Me",
+    "section": "Personal Traits & Interests",
+    "text": "Personal Traits & Interests\n\nFlexible, creative, autonomous\nPassionate about reading (webnovels, manga), gaming (MOBA, RPGs, chess), and intense storytelling (dramas, thrillers)"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\n\nben-ghali@hotmail.com\n\nLinkedIn\n\nGitHub"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Hi, I’m Mohamed El Ghali\nI’m a data scientist with a strong math background. I work mostly on NLP and machine learning projects — from topic modeling and sentiment analysis to building local RAG pipelines with LLMs.\nI like solving real problems with clean, understandable tools. Sometimes that means digging into theory, other times it means scraping messy data and making it usable.\n\nI believe good ideas deserve solid execution — even if that starts small.\n\n\n🔬 View Projects 📄 About Me 📬 Contact"
+  },
+  {
+    "objectID": "projects/placeholder2.html",
+    "href": "projects/placeholder2.html",
+    "title": "Project 2 - Placeholder",
+    "section": "",
+    "text": "Project 2 - Placeholder\nAnother placeholder for a future project.\nYou can expand this into a real post when you’re ready."
+  }
+]
