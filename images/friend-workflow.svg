@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background and container -->
+  <rect width="900" height="380" fill="#f8f9fa" rx="10" ry="10" />
+  <text x="450" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#333">Friend-Chatbot Pipeline</text>
+
+  <!-- Component Boxes -->
+  <!-- Speech-to-Text -->
+  <rect x="150" y="80" width="140" height="100" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" ry="8" />
+  <text x="220" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#0d47a1">Speech-to-Text</text>
+
+  <!-- LLM Response -->
+  <rect x="380" y="80" width="140" height="100" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="8" ry="8" />
+  <text x="450" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#1b5e20">LLM Response</text>
+
+  <!-- Text-to-Speech -->
+  <rect x="610" y="80" width="140" height="100" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" ry="8" />
+  <text x="680" y="130" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#e65100">Text-to-Speech</text>
+
+  <!-- Main Loop -->
+  <rect x="250" y="240" width="400" height="80" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="8" ry="8" />
+  <text x="450" y="270" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#4a148c">Main Loop</text>
+  <text x="450" y="295" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">Loop integrating all components</text>
+
+  <!-- Flow Arrows for Main Pipeline -->
+  <!-- User Input to STT -->
+  <path d="M 60 130 L 150 130" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <!-- STT to LLM -->
+  <path d="M 290 130 L 380 130" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <!-- LLM to TTS -->
+  <path d="M 520 130 L 610 130" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <!-- TTS to User Output -->
+  <path d="M 750 130 L 840 130" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  
+  <!-- Components to Main Loop -->
+  <path d="M 220 180 L 220 280 L 250 280" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <path d="M 450 180 L 450 240" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <path d="M 680 180 L 680 280 L 650 280" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+  <!-- User Icons -->
+  <circle cx="60" cy="130" r="6" fill="#f44336" />
+  <text x="60" y="110" text-anchor="middle" font-family="Arial" font-size="12" fill="#d32f2f">User</text>
+  <text x="60" y="90" text-anchor="middle" font-family="Arial" font-size="12" fill="#d32f2f">Input</text>
+  
+  <circle cx="840" cy="130" r="6" fill="#f44336" />
+  <text x="840" y="110" text-anchor="middle" font-family="Arial" font-size="12" fill="#d32f2f">User</text>
+  <text x="840" y="90" text-anchor="middle" font-family="Arial" font-size="12" fill="#d32f2f">Output</text>
+
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Data Flow Labels -->
+  <text x="105" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Speech</text>
+  <text x="335" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Text</text>
+  <text x="565" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Response</text>
+  <text x="795" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">Audio</text>
+
+  <!-- Legend -->
+  <rect x="110" y="330" width="680" height="35" fill="white" stroke="#ccc" stroke-width="1" rx="5" ry="5" />
+  <text x="450" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#666">
+    A complete voice interaction cycle: User speaks → Speech-to-Text → LLM processes → Text-to-Speech → User hears response
+  </text>
+</svg>

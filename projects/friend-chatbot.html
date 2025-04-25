@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Example Project - RAG Chatbot for Google Reviews – Mohamed El Ghali BENABOU</title>
+<title>Friend – A Private Voice Chatbot – Mohamed El Ghali BENABOU</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,14 +117,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rag-chatbot-for-google-reviews" id="toc-rag-chatbot-for-google-reviews" class="nav-link active" data-scroll-target="#rag-chatbot-for-google-reviews">RAG Chatbot for Google Reviews</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a>
   <ul class="collapse">
-  <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem">Problem</a></li>
-  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#under-the-hood" id="toc-under-the-hood" class="nav-link" data-scroll-target="#under-the-hood">Under the hood:</a></li>
+  <li><a href="#ux-detail" id="toc-ux-detail" class="nav-link" data-scroll-target="#ux-detail">UX Detail</a></li>
   </ul></li>
+  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   </ul>
 </nav>
     </div>
@@ -133,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Example Project - RAG Chatbot for Google Reviews</h1>
+<h1 class="title">Friend – A Private Voice Chatbot</h1>
 </div>
 
 
@@ -150,43 +151,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="rag-chatbot-for-google-reviews" class="level1">
-<h1>RAG Chatbot for Google Reviews</h1>
-<section id="problem" class="level2">
-<h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<p>Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><strong>Friend</strong> is a voice-enabled chatbot built as an experimental tool — or, as the name implies, a small “friend” you can talk to. It runs either using <strong>local LLMs</strong> or connects to <strong>Groq API</strong> if no local model is available.</p>
+<p>The goal wasn’t to solve a business problem, but to test how far you can go combining speech input, language models, and TTS output with minimal tooling.</p>
+<hr>
 </section>
-<section id="approach" class="level2">
-<h2 class="anchored" data-anchor-id="approach">Approach</h2>
-<p>I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.</p>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<p>There are two ways to run the app: - A <strong>Jupyter Notebook interface</strong> - A <strong>Python CLI version</strong></p>
+<section id="under-the-hood" class="level3">
+<h3 class="anchored" data-anchor-id="under-the-hood">Under the hood:</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/friend-workflow.svg" class="img-fluid figure-img"></p>
+<figcaption>Friend Chatbot Workflow</figcaption>
+</figure>
+</div>
 <ul>
-<li>Clustering reviews with <strong>BERTopic</strong></li>
-<li>Indexing with FAISS</li>
-<li>Using <strong>LLaMA 3.2</strong> for natural language generation</li>
-<li>Built with <strong>FastAPI</strong> and served via a simple interface</li>
+<li>A <code>while</code> loop waits for user input</li>
+<li>If no speech is detected after 2 seconds, it:
+<ul>
+<li>Records audio</li>
+<li>Converts it to text</li>
+<li>Logs the input into a simple text-based history</li>
+</ul></li>
+<li>Then:
+<ul>
+<li>If a <strong>local LLM</strong> is available, it runs the input there</li>
+<li>If that fails, it sends the input to <strong>Groq API</strong> (external LLM)</li>
+</ul></li>
+<li>Once a response is received:
+<ul>
+<li>The answer is added to the history</li>
+<li>It’s spoken back to the user using TTS</li>
+<li>The app then waits for the next message</li>
+</ul></li>
 </ul>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
-<ul>
-<li>Fast and relevant responses to complex user queries</li>
-<li>High user satisfaction in internal tests</li>
-<li>Potential for real-world deployment for businesses with large review volumes</li>
-</ul>
+<section id="ux-detail" class="level3">
+<h3 class="anchored" data-anchor-id="ux-detail">UX Detail</h3>
+<p>This is an experimental tool — built to test, learn, and better understand what it means to talk to machines in a more natural way. It wasn’t designed to scale, but to serve as a proof of concept for private, voice-based interaction with language models. It’s simple, and it works.</p>
+<hr>
+</section>
 </section>
 <section id="tech-stack" class="level2">
 <h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
-<p><code>Python</code>, <code>FastAPI</code>, <code>LLaMA 3.2</code>, <code>BERTopic</code>, <code>SentenceTransformers</code>, <code>FAISS</code>, <code>Selenium</code>, <code>BeautifulSoup</code>, <code>React</code> (WIP)</p>
-</section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/Overowser">GitHub Repository</a> <em>(placeholder link)</em></li>
-<li>Demo: Coming Soon</li>
+<li>Python (CLI + Notebook)</li>
+<li>TTS + Speech Recognition</li>
+<li>LLMs (Groq API, Local Model fallback — Ollama)</li>
+<li>File-based logging and history</li>
 </ul>
-
-
+<hr>
 </section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<blockquote class="blockquote">
+<p>“The most interesting part was realizing how simple this is to build with the right tools. It’s not fancy — but it works. And it was fun to make.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<ul>
+<li><a href="https://github.com/Overowser/Friend">GitHub Repository – Friend</a></li>
+</ul>
+<hr>
+<p>This is an experimental tool — built to test, learn, and better understand what it means to talk to machines in a more natural way. It also serves as a proof of concept for private, voice-based interaction with language models. It’s simple, and it works.</p>
+
+
 </section>
 
 </main> <!-- /main -->

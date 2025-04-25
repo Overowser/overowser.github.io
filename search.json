@@ -4,7 +4,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Welcome to my project showcase. Click on a card to explore the full details.\n\n \n\nExample Project\n\n\nAn end-to-end NLP system using RAG and LLaMA\n\n\n \n\nComing Soon\n\n\nAnother upcoming project will be featured here"
+    "text": "Welcome to my project showcase. Click on a card to explore the full details.\n\n \n\nFriend\n\n\nA private voice chatbot using LLMs and TTS\n\n\n \n\nComing Soon\n\n\nAnother upcoming project will be featured here"
   },
   {
     "objectID": "projects/placeholder1.html",
@@ -49,46 +49,11 @@
     "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
   },
   {
-    "objectID": "example-project.html",
-    "href": "example-project.html",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
     "section": "",
-    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
-  },
-  {
-    "objectID": "example-project.html#problem",
-    "href": "example-project.html#problem",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
-  },
-  {
-    "objectID": "example-project.html#approach",
-    "href": "example-project.html#approach",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
-  },
-  {
-    "objectID": "example-project.html#results",
-    "href": "example-project.html#results",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
-  },
-  {
-    "objectID": "example-project.html#tech-stack",
-    "href": "example-project.html#tech-stack",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
-  },
-  {
-    "objectID": "example-project.html#links",
-    "href": "example-project.html#links",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
+    "text": "Hi, I’m Mohamed El Ghali\nI’m a data scientist with a strong math background. I work mostly on NLP and machine learning projects — from topic modeling and sentiment analysis to building local RAG pipelines with LLMs.\nI like solving real problems with clean, understandable tools. Sometimes that means digging into theory, other times it means scraping messy data and making it usable.\n\nI believe good ideas deserve solid execution — even if that starts small.\n\n\n🔬 View Projects 📄 About Me 📬 Contact"
   },
   {
     "objectID": "about.html",
@@ -154,11 +119,88 @@
     "text": "Contact\n\nben-ghali@hotmail.com\n\nLinkedIn\n\nGitHub"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
+    "objectID": "example-project.html",
+    "href": "example-project.html",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
     "section": "",
-    "text": "Hi, I’m Mohamed El Ghali\nI’m a data scientist with a strong math background. I work mostly on NLP and machine learning projects — from topic modeling and sentiment analysis to building local RAG pipelines with LLMs.\nI like solving real problems with clean, understandable tools. Sometimes that means digging into theory, other times it means scraping messy data and making it usable.\n\nI believe good ideas deserve solid execution — even if that starts small.\n\n\n🔬 View Projects 📄 About Me 📬 Contact"
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "example-project.html#problem",
+    "href": "example-project.html#problem",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
+  },
+  {
+    "objectID": "example-project.html#approach",
+    "href": "example-project.html#approach",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
+  },
+  {
+    "objectID": "example-project.html#results",
+    "href": "example-project.html#results",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
+  },
+  {
+    "objectID": "example-project.html#tech-stack",
+    "href": "example-project.html#tech-stack",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
+  },
+  {
+    "objectID": "example-project.html#links",
+    "href": "example-project.html#links",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html",
+    "href": "projects/friend-chatbot.html",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "",
+    "text": "Friend is a voice-enabled chatbot built as an experimental tool — or, as the name implies, a small “friend” you can talk to. It runs either using local LLMs or connects to Groq API if no local model is available.\nThe goal wasn’t to solve a business problem, but to test how far you can go combining speech input, language models, and TTS output with minimal tooling."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#overview",
+    "href": "projects/friend-chatbot.html#overview",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "",
+    "text": "Friend is a voice-enabled chatbot built as an experimental tool — or, as the name implies, a small “friend” you can talk to. It runs either using local LLMs or connects to Groq API if no local model is available.\nThe goal wasn’t to solve a business problem, but to test how far you can go combining speech input, language models, and TTS output with minimal tooling."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#how-it-works",
+    "href": "projects/friend-chatbot.html#how-it-works",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "How It Works",
+    "text": "How It Works\nThere are two ways to run the app: - A Jupyter Notebook interface - A Python CLI version\n\nUnder the hood:\n\n\n\nFriend Chatbot Workflow\n\n\n\nA while loop waits for user input\nIf no speech is detected after 2 seconds, it:\n\nRecords audio\nConverts it to text\nLogs the input into a simple text-based history\n\nThen:\n\nIf a local LLM is available, it runs the input there\nIf that fails, it sends the input to Groq API (external LLM)\n\nOnce a response is received:\n\nThe answer is added to the history\nIt’s spoken back to the user using TTS\nThe app then waits for the next message\n\n\n\n\nUX Detail\nThis is an experimental tool — built to test, learn, and better understand what it means to talk to machines in a more natural way. It wasn’t designed to scale, but to serve as a proof of concept for private, voice-based interaction with language models. It’s simple, and it works."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#tech-stack",
+    "href": "projects/friend-chatbot.html#tech-stack",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython (CLI + Notebook)\nTTS + Speech Recognition\nLLMs (Groq API, Local Model fallback — Ollama)\nFile-based logging and history"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#notes",
+    "href": "projects/friend-chatbot.html#notes",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "Notes",
+    "text": "Notes\n\n“The most interesting part was realizing how simple this is to build with the right tools. It’s not fancy — but it works. And it was fun to make.”"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#code",
+    "href": "projects/friend-chatbot.html#code",
+    "title": "Friend – A Private Voice Chatbot",
+    "section": "Code",
+    "text": "Code\n\nGitHub Repository – Friend\n\n\nThis is an experimental tool — built to test, learn, and better understand what it means to talk to machines in a more natural way. It also serves as a proof of concept for private, voice-based interaction with language models. It’s simple, and it works."
   },
   {
     "objectID": "projects/placeholder2.html",
