@@ -4,49 +4,84 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Welcome to my project showcase. Click on a card to explore the full details.\n\n \n\nFriend\n\n\nA private voice chatbot using LLMs and TTS\n\n\n \n\nComing Soon\n\n\nAnother upcoming project will be featured here"
+    "text": "Welcome to my project showcase. Click on a card to explore the full details.\n\n \n\nFriend\n\n\nA private voice chatbot using LLMs and TTS\n\n\n \n\nNovAI\n\n\nAn interactive Novel Reader\n\n\n \n\nComing Soon\n\n\nAnother upcoming project will be featured here"
   },
   {
-    "objectID": "projects/placeholder1.html",
-    "href": "projects/placeholder1.html",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "objectID": "projects/novai.html",
+    "href": "projects/novai.html",
+    "title": "NovAI - Interactive Novel Reader",
     "section": "",
-    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
+    "text": "NovAI is a full-stack web application that transforms online novels into an accessible listening experience. It combines web scraping technology with text-to-speech capabilities to allow users to both read and listen to novels with real-time paragraph highlighting.\nThe project features a React frontend with Material UI for the interface and a Python backend (FastAPI/Flask) that handles novel retrieval and processing. This separation of concerns allows for a responsive user experience while efficiently managing data processing on the server.\n\n\n\nNovAI Main Interface"
   },
   {
-    "objectID": "projects/placeholder1.html#problem",
-    "href": "projects/placeholder1.html#problem",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "objectID": "projects/novai.html#overview",
+    "href": "projects/novai.html#overview",
+    "title": "NovAI - Interactive Novel Reader",
     "section": "",
-    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
+    "text": "NovAI is a full-stack web application that transforms online novels into an accessible listening experience. It combines web scraping technology with text-to-speech capabilities to allow users to both read and listen to novels with real-time paragraph highlighting.\nThe project features a React frontend with Material UI for the interface and a Python backend (FastAPI/Flask) that handles novel retrieval and processing. This separation of concerns allows for a responsive user experience while efficiently managing data processing on the server.\n\n\n\nNovAI Main Interface"
   },
   {
-    "objectID": "projects/placeholder1.html#approach",
-    "href": "projects/placeholder1.html#approach",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
+    "objectID": "projects/novai.html#story-behind-the-project",
+    "href": "projects/novai.html#story-behind-the-project",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Story Behind the Project",
+    "text": "Story Behind the Project\nAs an avid webnovel reader, I found myself manually copying and pasting chapters from websites into TTS tools just to listen to them. This process started with tab-switching and copy-pasting each chapter individually, then evolved into basic automation using AHK scripts. Eventually, I discovered web scraping, which let me batch-download chapters into a text file—speeding up the process dramatically.\nThat workflow worked, but it lacked elegance. I wanted something smoother, faster, and more accessible—so I built NovAI. With a full frontend and backend pipeline, chapter scraping became instant, and listening became seamless. What began as a personal solution to a repetitive task turned into a tool designed for comfort and efficiency."
   },
   {
-    "objectID": "projects/placeholder1.html#results",
-    "href": "projects/placeholder1.html#results",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
+    "objectID": "projects/novai.html#key-features",
+    "href": "projects/novai.html#key-features",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Key Features",
+    "text": "Key Features\n\nNovel Content Retrieval: Search and fetch novels by keyword from online sources\nInteractive Text-to-Speech: Listen to novels with adjustable reading speed (0.5x to 2.5x)\nReal-time Visual Tracking: Paragraphs are highlighted as they’re being read\nFull Playback Controls: Play, pause, and stop functionality\nContent Management: Copy text to clipboard or download as TXT files\nResponsive Design: Optimized for various screen sizes\nContent Caching: Server-side caching for improved performance"
   },
   {
-    "objectID": "projects/placeholder1.html#tech-stack",
-    "href": "projects/placeholder1.html#tech-stack",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
+    "objectID": "projects/novai.html#tech-stack",
+    "href": "projects/novai.html#tech-stack",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nFrontend\n\nReact: Component-based UI development\nMaterial UI: Design system for consistent styling and theming\nTTS-Reader.com Engine: External text-to-speech service integration\nReact Hooks: State management and component lifecycle\nFetch API: Communication with backend services\n\n\n\nBackend\n\nFastAPI/Flask: API endpoints for content retrieval\naiohttp/BeautifulSoup4: Asynchronous web scraping\nSQLite: Content caching database\nasyncio: Asynchronous I/O framework\nPydantic: Data validation and settings management"
   },
   {
-    "objectID": "projects/placeholder1.html#links",
-    "href": "projects/placeholder1.html#links",
-    "title": "Example Project - RAG Chatbot for Google Reviews",
-    "section": "",
-    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
+    "objectID": "projects/novai.html#architecture",
+    "href": "projects/novai.html#architecture",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Architecture",
+    "text": "Architecture\n\n\n\n\n\nflowchart LR\n    classDef userNode fill:#6C8EBF,stroke:#5D82B5,color:white,stroke-width:2px\n    classDef frontendNode fill:#6C8EBF,stroke:#5D82B5,color:white,stroke-width:2px\n    classDef backendNode fill:#D79B00,stroke:#C48C00,color:white,stroke-width:2px\n    classDef dataNode fill:#82B366,stroke:#6AA84F,color:white,stroke-width:2px\n    \n    User([User])\n    Frontend[React Frontend&lt;br&gt;Material UI + TTS]\n    Backend[Backend API&lt;br&gt;FastAPI/Flask]\n    NovelSource[Novel Websites]\n    Cache[(SQLite Cache)]\n    \n    User --&gt;|1• Requests Novel| Frontend\n    Frontend --&gt;|2• POST Request| Backend\n    Backend --&gt;|3• Check Cache| Cache\n    Cache --&gt;|4• Return if Available| Backend\n    Backend --&gt;|5• Scrape if Needed| NovelSource\n    NovelSource --&gt;|6• HTML Content| Backend\n    Backend --&gt;|7• Store Processed| Cache\n    Backend --&gt;|8• JSON Response| Frontend\n    Frontend --&gt;|9• Display & TTS| User\n    \n    class User userNode\n    class Frontend frontendNode\n    class Backend,Cache backendNode\n    class NovelSource dataNode\n\n\n\n\n\n\nThe application follows a client-server architecture with external services:\n\nClient (React): Handles user interface and visualization\nTTS-Reader.com Engine: Provides high-quality text-to-speech functionality\nServer (FastAPI/Flask): Manages novel discovery, content scraping, and text processing\nDatabase (SQLite): Caches scraped content to improve performance and reduce load on source websites"
+  },
+  {
+    "objectID": "projects/novai.html#implementation-details",
+    "href": "projects/novai.html#implementation-details",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Implementation Details",
+    "text": "Implementation Details\n\nFrontend Implementation\nThe React application provides an intuitive interface for novel reading with these core components:\n\nSearch Interface: Allows users to specify novel keywords and chapter parameters\nContent Display: Renders retrieved novel content with proper formatting\nTTS Engine Integration: Connects to browser’s native speech synthesis capabilities\nVisual Tracking System: Highlights paragraphs in real-time during playback\nResponsive Layout: Adapts to different screen sizes using Material UI Grid\n\n// Example of TTS implementation with TTS-Reader.com engine\nuseEffect(() =&gt; {\n  if (!window.wsGlobals || !window.wsGlobals.TtsEngine) {\n    console.error(\"TTS engine (wsGlobals.TtsEngine) is not available.\");\n    return;\n  }\n  \n  const tts = window.wsGlobals.TtsEngine;\n  ttsRef.current = tts;\n\n  tts.init({\n    onInit: (voices) =&gt; {\n      console.log(\"TTS Initialized.\");\n      tts.setRate(readingRate);\n      try {\n        tts.setVoiceByUri(\"urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US\");\n      } catch (e) {\n        console.warn(\"Could not set preferred voice, using default.\", e);\n      }\n    },\n    onStart: () =&gt; { console.log(\"Speech started for a segment.\"); },\n    onDone: handleSpeechDone,\n    onError: (err) =&gt; {\n      console.error(\"TTS Error:\", err);\n      setIsPlaying(false);\n      highlightParagraph(-1);\n    }\n  });\n  \n  // Cleanup function\n  return () =&gt; {\n    if (timerRef.current) clearTimeout(timerRef.current);\n    if (ttsRef.current) ttsRef.current.stop();\n    ttsRef.current = null;\n  };\n}, [textArray, readingRate, speakParagraph]);\n\n\nBackend Implementation\nThe Python backend handles the heavy lifting of content retrieval:\n\nNovel Search: Finds the correct novel based on user keywords\nContent Scraping: Extracts chapter content from web sources\nText Processing: Cleans and formats text for optimal reading/listening\nResponse Formatting: Returns structured data with both raw and formatted content\nCaching System: Stores previously retrieved content to improve performance\n\nasync def get_text(keyword, chapter, number):\n    async with aiohttp.ClientSession(headers=headers) as session:\n        urls, novel_title, novel_image = await get_urls(session, number, chapter, keyword)\n\n        tasks = [get_page_content(session, url) for url in urls]\n        texts = await asyncio.gather(*tasks)\n\n        text = '\\n'.join(texts)\n        text = preprocess(text)\n\n        text_array = [par.strip() for par in text.split(\"\\n\")]\n        text_formatted = \"\".join([f'&lt;p id=\"par{i}\"&gt;{par}&lt;/p&gt;' for i, par in enumerate(text_array)])\n\n        return {\n            'text': text,\n            \"title\": novel_title,\n            \"image\": novel_image,\n            \"formatted\": text_formatted,\n            \"array\": text_array\n        }"
+  },
+  {
+    "objectID": "projects/novai.html#challenges-solutions",
+    "href": "projects/novai.html#challenges-solutions",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Challenges & Solutions",
+    "text": "Challenges & Solutions\n\n\n\n\n\n\n\nChallenge\nSolution\n\n\n\n\nWeb Scraping Reliability\nImplemented robust error handling and fallback mechanisms\n\n\nTTS Performance\nOptimized text processing for better speech synthesis\n\n\nContent Variety\nDeveloped flexible parsing logic to handle different novel formats\n\n\nCross-Origin Limitations\nConfigured proper CORS handling on the backend\n\n\nReading Position Tracking\nCreated custom synchronization between text and speech"
+  },
+  {
+    "objectID": "projects/novai.html#future-enhancements",
+    "href": "projects/novai.html#future-enhancements",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Future Enhancements",
+    "text": "Future Enhancements\n\nUser Accounts: Save reading progress and preferences\nCustom Voice Support: Allow users to select different TTS voices\nOffline Support: Progressive Web App capabilities for offline reading\nAdvanced Search: Filter novels by genre, author, and rating\nMobile Applications: Native mobile versions for iOS and Android\nMulti-language Support: Expand beyond English content"
+  },
+  {
+    "objectID": "projects/novai.html#lessons-learned",
+    "href": "projects/novai.html#lessons-learned",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Lessons Learned",
+    "text": "Lessons Learned\nDeveloping NovAI provided valuable insights into:\n\nFull-Stack Integration: Balancing frontend and backend responsibilities\nWeb Speech API: Working with browser-based speech synthesis\nAsynchronous Processing: Managing concurrent operations in Python\nUser Experience Design: Creating an intuitive interface for audio content\nContent Processing: Transforming web content into accessible formats"
+  },
+  {
+    "objectID": "projects/novai.html#code",
+    "href": "projects/novai.html#code",
+    "title": "NovAI - Interactive Novel Reader",
+    "section": "Code",
+    "text": "Code\n\nGitHub Repository – Frontend\nGitHub Repository – Backend"
   },
   {
     "objectID": "index.html",
@@ -203,10 +238,45 @@
     "text": "Code\n\nGitHub Repository – Friend\n\n\nThis is an experimental tool — built to test, learn, and better understand what it means to talk to machines in a more natural way. It also serves as a proof of concept for private, voice-based interaction with language models. It’s simple, and it works."
   },
   {
-    "objectID": "projects/placeholder2.html",
-    "href": "projects/placeholder2.html",
-    "title": "Project 2 - Placeholder",
+    "objectID": "projects/placeholder1.html",
+    "href": "projects/placeholder1.html",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
     "section": "",
-    "text": "Project 2 - Placeholder\nAnother placeholder for a future project.\nYou can expand this into a real post when you’re ready."
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments.\n\n\n\nI created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface\n\n\n\n\n\nFast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes\n\n\n\n\nPython, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)\n\n\n\n\nGitHub Repository (placeholder link)\nDemo: Coming Soon"
+  },
+  {
+    "objectID": "projects/placeholder1.html#problem",
+    "href": "projects/placeholder1.html#problem",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Google reviews are often noisy, redundant, and unstructured. Businesses need a fast way to understand what people are saying without reading thousands of comments."
+  },
+  {
+    "objectID": "projects/placeholder1.html#approach",
+    "href": "projects/placeholder1.html#approach",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "I created a local chatbot using a Retrieval-Augmented Generation (RAG) pipeline that allows a user to ask natural language questions about a business and get instant answers based on the review corpus.\n\nClustering reviews with BERTopic\nIndexing with FAISS\nUsing LLaMA 3.2 for natural language generation\nBuilt with FastAPI and served via a simple interface"
+  },
+  {
+    "objectID": "projects/placeholder1.html#results",
+    "href": "projects/placeholder1.html#results",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Fast and relevant responses to complex user queries\nHigh user satisfaction in internal tests\nPotential for real-world deployment for businesses with large review volumes"
+  },
+  {
+    "objectID": "projects/placeholder1.html#tech-stack",
+    "href": "projects/placeholder1.html#tech-stack",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "Python, FastAPI, LLaMA 3.2, BERTopic, SentenceTransformers, FAISS, Selenium, BeautifulSoup, React (WIP)"
+  },
+  {
+    "objectID": "projects/placeholder1.html#links",
+    "href": "projects/placeholder1.html#links",
+    "title": "Example Project - RAG Chatbot for Google Reviews",
+    "section": "",
+    "text": "GitHub Repository (placeholder link)\nDemo: Coming Soon"
   }
 ]
