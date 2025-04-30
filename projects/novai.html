@@ -102,9 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -255,42 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="architecture" class="level2">
 <h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    classDef userNode fill:#6C8EBF,stroke:#5D82B5,color:white,stroke-width:2px
-    classDef frontendNode fill:#6C8EBF,stroke:#5D82B5,color:white,stroke-width:2px
-    classDef backendNode fill:#D79B00,stroke:#C48C00,color:white,stroke-width:2px
-    classDef dataNode fill:#82B366,stroke:#6AA84F,color:white,stroke-width:2px
-    
-    User([User])
-    Frontend[React Frontend&lt;br&gt;Material UI + TTS]
-    Backend[Backend API&lt;br&gt;FastAPI/Flask]
-    NovelSource[Novel Websites]
-    Cache[(SQLite Cache)]
-    
-    User --&gt;|1• Requests Novel| Frontend
-    Frontend --&gt;|2• POST Request| Backend
-    Backend --&gt;|3• Check Cache| Cache
-    Cache --&gt;|4• Return if Available| Backend
-    Backend --&gt;|5• Scrape if Needed| NovelSource
-    NovelSource --&gt;|6• HTML Content| Backend
-    Backend --&gt;|7• Store Processed| Cache
-    Backend --&gt;|8• JSON Response| Frontend
-    Frontend --&gt;|9• Display &amp; TTS| User
-    
-    class User userNode
-    class Frontend frontendNode
-    class Backend,Cache backendNode
-    class NovelSource dataNode
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/novai-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Novai Workflow</figcaption>
+</figure>
 </div>
 <p>The application follows a client-server architecture with external services:</p>
 <ol type="1">
