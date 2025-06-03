@@ -1,0 +1,401 @@
+  /* --- Definitive styles.css for Quarto Portfolio --- */
+
+  /* 1. SETUP: IMPORT FONT & CSS VARIABLES */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-gradient: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --border-radius: 20px;
+    --border-radius-small: 10px;
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* 2. GLOBAL STYLES & BACKGROUND */
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background: var(--primary-gradient) fixed !important;
+    color: var(--text-primary) !important;
+    line-height: 1.7;
+  }
+
+  /* 3. QUARTO STRUCTURE STYLING */
+  /* Header & Navbar */
+  #quarto-header {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+  }
+
+  .navbar-brand .navbar-title {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+  }
+
+  .navbar-nav .nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    transition: var(--transition) !important;
+  }
+
+  .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: var(--text-primary) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Main Content Area */
+  main.content {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: var(--border-radius) !important;
+    padding: clamp(1.5rem, 5vw, 3rem) !important;
+    margin-top: 2rem !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--shadow-medium) !important;
+  }
+
+#quarto-margin-sidebar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: var(--border-radius) !important;
+  border: 1px solid var(--glass-border) !important;
+  padding: 1.5rem !important;
+  box-shadow: var(--shadow-medium);
+}
+
+.sidebar nav#TOC h2 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Removes default bullet points and indentation */
+.sidebar nav#TOC ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/* Default style for each link in the TOC */
+.sidebar nav#TOC a {
+  color: var(--text-secondary) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.25rem !important;
+  display: block !important;
+  border-radius: var(--border-radius-small);
+  border-left: 3px solid transparent; /* Placeholder for the active highlight */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style for when you hover over a link */
+.sidebar nav#TOC a:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-left-color: var(--glass-border);
+}
+
+/* Style for the link that is currently active/in-view on the page */
+.sidebar nav#TOC a.active {
+  color: var(--text-primary) !important;
+  font-weight: 700;
+  background: rgba(255, 107, 107, 0.15) !important; /* Uses your site's accent color */
+  border-left: 3px solid #ff6b6b;
+}
+
+/* Adds indentation for sub-headings for a cleaner look */
+.sidebar nav#TOC ul ul a {
+  padding-left: 2rem !important;
+}
+
+  /* 4. CONTENT ELEMENT STYLING */
+  /* Typography */
+  h1, h2, h3, h4, .title {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+  }
+  h1.title { font-size: clamp(2rem, 6vw, 3.5rem) !important; }
+  p, li { color: var(--text-secondary) !important; }
+
+  /* Links - FIXED (no orange line on cards) */
+  a {
+    color: #ff8b8b !important;
+    text-decoration: none !important;
+    transition: var(--transition) !important;
+  }
+  a:hover { color: #ffaeae !important; }
+  /* This removes the hover line from project cards */
+  a.project-card:hover::after { width: 0 !important; }
+
+  /* Buttons */
+  a.button {
+    display: inline-flex !important;
+    gap: 0.75rem !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    background: var(--accent-gradient) !important;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+  }
+  a.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  a.button.button-secondary {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  a.button.button-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* 5. HOMEPAGE & PROJECTS STYLING */
+  /* Hero Section for index.qmd */
+  .hero-section {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    font-weight: 800 !important;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: var(--text-secondary) !important;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    margin-right: 0rem;
+  }
+  .hero-section .quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    padding: 1rem;
+    margin: 1.5rem auto;
+    max-width: 600px;
+    border-left: 3px solid var(--glass-border);
+  }
+
+  .skill-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      font-size: 0.9rem;
+      font-weight: 500;
+  }
+
+  /* Project Grid - FIXED */
+  .project-grid {
+    /* This is the critical rule that creates the grid layout. */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px) !important;
+    border-radius: var(--border-radius) !important;
+    border: 1px solid var(--glass-border) !important;
+    text-align: center;
+    text-decoration: none !important;
+    color: inherit;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+
+  /* This rule prevents the global link-hover style from affecting cards. */
+  a.project-card:hover::after { 
+    width: 0 !important; 
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .project-title { color: var(--text-primary); padding-top: 1rem; font-size: 1.2rem; }
+  .project-subtitle { color: var(--text-secondary); padding: 0.5rem 1rem 1.5rem 1rem; font-size: 0.95rem; }
+
+/* --- Homepage Animated Subtitle --- */
+.hero-subtitle.animated-typing {
+  display: inline-block; /* Allow it to sit on a line like text but have a defined width */
+  overflow: hidden;      /* Hides the text that's not yet "typed" */
+  white-space: nowrap;   /* Ensures text stays on a single line */
+
+  border-right: .15em solid #ff6b6b; /* The typing cursor */
+  
+  /* Resets from previous attempts, ensuring no rogue styles */
+  border-bottom: none !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+
+  /* Animation: typing once, then blinking cursor indefinitely */
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink-caret .75s step-end infinite;
+}
+
+/* Reset pseudo-elements (this part is good and remains) */
+.hero-subtitle.animated-typing::before,
+.hero-subtitle.animated-typing::after {
+  content: "" !important; 
+  display: none !important;
+  animation: none !important;
+  border: none !important;
+  background: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* The typing animation keyframes */
+@keyframes typing {
+  from { 
+    /* Animate the visible portion of the element's width from 0... */
+    width: 0; 
+  }
+  to { 
+    /* ...to 100% of its own 'max-content' width. */
+    /* Because the element's style is 'width: max-content', this 100% refers to that calculated content width. */
+    width: 100%; 
+  }
+}
+
+/* The typewriter cursor blinking animation keyframes (remains the same) */
+@keyframes blink-caret {
+  from, to { 
+    border-right-color: transparent; 
+  }
+  50% { 
+    border-right-color: #ff6b6b; 
+  }
+}
+
+ /* --- Homepage Skills Preview Section (Simplified) --- */
+.skills-preview-section {
+  text-align: center;
+  padding: 2.5rem; /* Increased padding */
+  margin: 3rem auto 0 auto;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  max-width: 900px;
+}
+
+.skills-preview-section h3 {
+  font-size: 1.8rem !important; 
+  color: var(--text-primary) !important;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling the <ul> inside .skills-preview-section */
+.skills-preview-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Styling each <li> as a skill item */
+.skills-preview-section li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  color: var(--text-secondary); 
+}
+
+.skills-preview-section li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  color: var(--text-primary);
+}
+
+/* --- Homepage Connect Section (Simplified) --- */
+.connect-section {
+  text-align: center;
+  padding: 2.5rem; /* Increased padding */
+  margin: 3rem auto 0 auto; /* Added top margin */
+  max-width: 900px;
+  background: var(--glass-bg); 
+  border: 1px solid var(--glass-border); 
+  border-radius: var(--border-radius); 
+}
+
+.connect-section h3 {
+  font-size: 1.8rem !important; 
+  color: var(--text-primary) !important;
+  margin-bottom: 1rem;
+}
+
+.connect-section p { 
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto; 
+  color: var(--text-secondary);
+}
+
+/* Styling the <ul> inside .connect-section */
+.connect-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; 
+  flex-wrap: wrap;
+}
+
+.connect-section li {
+   color: var(--text-secondary); 
+}
+
+/* Styling each <a> tag within the <li> */
+.connect-section li a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important; 
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+}
+
+.connect-section li a:hover {
+  color: var(--text-primary) !important;
+  border-bottom-color: #ff6b6b;
+}
+
+.subtitle-wrapper {
+  display: inline-block; /* This makes the wrapper only as wide as the subtitle it contains */
+  /* The .hero-section's text-align: center will center this inline-block wrapper */
+}
