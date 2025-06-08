@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Portfolio</title>
+<title>Projects – Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,6 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -89,21 +90,21 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./en/index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./en/projects.html"> 
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./en/about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./fr/index.html"> 
+    <a class="nav-link" href="./#"> 
 <span class="menu-text">Français</span></a>
   </li>  
 </ul>
@@ -119,54 +120,72 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="hero-title title display-7">
-Mohamed El Ghali BENABOU
-</h1></header>
+<main class="content column-page" id="quarto-document-content">
 
-
-
-
-<div class="hero-section">
-
-<div class="subtitle-wrapper">
-<h2 class="hero-subtitle animated-typing">
-Data Scientist &amp; Machine Learning Engineer
-</h2>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Projects</h1>
 </div>
-<p>
-I specialize in transforming complex data into actionable insights through NLP, machine learning, and intelligent systems. From topic modeling to building RAG pipelines with LLMs, I create solutions that bridge theory and real-world impact.
-</p>
-<div class="quote">
-<p>“Good ideas deserve solid execution — even if that starts small.”</p>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Welcome to my project showcase. Click on a card to explore the full details.</p>
+<div class="project-grid">
+<a class="project-card" href="./projects/friend-chatbot.html"> <img src="images/friend.png" alt="Friend Chatbot">
+<div class="project-title">
+Friend
 </div>
-<div class="cta-buttons">
-<p><a href="./projects.html" class="button">View Projects</a> <a href="./about.html" class="button button-secondary">About Me</a></p>
+<div class="project-subtitle">
+A private voice chatbot using LLMs and TTS
 </div>
+</a> <a class="project-card" href="./projects/novai.html"> <img src="images/novai.png" alt="NovAI  ">
+<div class="project-title">
+NovAI
 </div>
-<section id="core-expertise" class="level3 skills-preview-section">
-<h3 data-anchor-id="core-expertise">Core Expertise</h3>
-<ul>
-<li>Natural Language Processing</li>
-<li>Machine Learning</li>
-<li>RAG Systems</li>
-<li>Data Analysis</li>
-</ul>
-</section>
-<section id="lets-connect" class="level3 connect-section">
-<h3 data-anchor-id="lets-connect">Let’s Connect</h3>
-<p>I’m always interested in new challenges and opportunities. Feel free to look at my work and get in touch.</p>
-<ul>
-<li><a href="https://github.com/overowser" target="_blank">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/b-el-ghali" target="_blank">LinkedIn</a></li>
-<li><a href="mailto:ben-ghali@hotmail.com">Email</a></li>
-</ul>
-</section>
+<div class="project-subtitle">
+An interactive Novel Reader
+</div>
+</a> <a class="project-card" href="./projects/novai-qa.html"> <img src="images/Novai-QA-logo.png" alt="NovAI QA">
+<div class="project-title">
+NovAI QA
+</div>
+<div class="project-subtitle">
+A RAG-based approach to long-form literature analysis
+</div>
+</a> <a class="project-card" href="#"> <img src="images/coming_soon.png" alt="Project 2 Image">
+<div class="project-title">
+Coming Soon
+</div>
+<div class="project-subtitle">
+Another upcoming project will be featured here
+</div>
+</a><p><a class="project-card" href="#"></a></p>
+</div>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -558,6 +577,7 @@ I specialize in transforming complex data into actionable insights through NLP, 
   });
   </script>
 </div> <!-- /content -->
+<script src="./language-toggle.js"></script>
 
 
 

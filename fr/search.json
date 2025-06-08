@@ -1,0 +1,254 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projets",
+    "section": "",
+    "text": "Bienvenue dans ma vitrine de projets. Cliquez sur une carte pour explorer les détails complets.\n\n \n\nFriend\n\n\nUn chatbot vocal privé utilisant des LLM et la synthèse vocale\n\n  \n\nNovAI\n\n\nUn lecteur de romans interactif\n\n  \n\nNovAI QA\n\n\nUne approche RAG pour l’analyse approfondie de la littérature\n\n  \n\nBientôt Disponible\n\n\nUn autre projet à venir sera présenté ici"
+  },
+  {
+    "objectID": "projects/novai-qa.html",
+    "href": "projects/novai-qa.html",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "",
+    "text": "Novai QA représente une approche novatrice pour gérer l’un des problèmes les plus difficiles dans la discussion littéraire : la gestion des spoilers. Ce système de génération augmentée par récupération (RAG) permet aux lecteurs de poser des questions sur des romans web tout en maintenant des limites strictes sans spoilers basées sur leur progression de lecture actuelle.\n\n\nLes romans web de longue durée, particulièrement ceux des plateformes comme novelfull.com, s’étendent souvent sur des milliers de chapitres avec des relations de personnages complexes et des développements d’intrigue complexes. Les lecteurs veulent fréquemment :\n\nClarifier les relations entre personnages sans gâcher les développements futurs\nComprendre des éléments complexes de construction du monde\nObtenir des rappels sur les événements passés sans relire des sections entières\nDiscuter des points d’intrigue avec confiance en matière de sécurité des spoilers\n\nLes approches traditionnelles échouent parce qu’elles soit : 1. Ne fournissent aucune protection contre les spoilers 2. Nécessitent une curation manuelle du contenu 3. Ne peuvent pas gérer l’échelle de très longs romans 4. Manquent de compréhension contextuelle nécessaire pour des questions nuancées\n\n\n\nJ’ai développé un pipeline RAG sophistiqué qui combine :\n\nWeb scraping intelligent pour l’acquisition automatisée de contenu\nSystèmes de récupération hybrides mélangeant recherche sémantique et par mots-clés\nFiltrage de spoilers basé sur les chapitres pour la conscience de progression de l’utilisateur\nIntégration LLM locale pour la confidentialité et le contrôle\nChunking conscient du contexte pour une récupération d’information optimale"
+  },
+  {
+    "objectID": "projects/novai-qa.html#aperçu-du-projet",
+    "href": "projects/novai-qa.html#aperçu-du-projet",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "",
+    "text": "Novai QA représente une approche novatrice pour gérer l’un des problèmes les plus difficiles dans la discussion littéraire : la gestion des spoilers. Ce système de génération augmentée par récupération (RAG) permet aux lecteurs de poser des questions sur des romans web tout en maintenant des limites strictes sans spoilers basées sur leur progression de lecture actuelle.\n\n\nLes romans web de longue durée, particulièrement ceux des plateformes comme novelfull.com, s’étendent souvent sur des milliers de chapitres avec des relations de personnages complexes et des développements d’intrigue complexes. Les lecteurs veulent fréquemment :\n\nClarifier les relations entre personnages sans gâcher les développements futurs\nComprendre des éléments complexes de construction du monde\nObtenir des rappels sur les événements passés sans relire des sections entières\nDiscuter des points d’intrigue avec confiance en matière de sécurité des spoilers\n\nLes approches traditionnelles échouent parce qu’elles soit : 1. Ne fournissent aucune protection contre les spoilers 2. Nécessitent une curation manuelle du contenu 3. Ne peuvent pas gérer l’échelle de très longs romans 4. Manquent de compréhension contextuelle nécessaire pour des questions nuancées\n\n\n\nJ’ai développé un pipeline RAG sophistiqué qui combine :\n\nWeb scraping intelligent pour l’acquisition automatisée de contenu\nSystèmes de récupération hybrides mélangeant recherche sémantique et par mots-clés\nFiltrage de spoilers basé sur les chapitres pour la conscience de progression de l’utilisateur\nIntégration LLM locale pour la confidentialité et le contrôle\nChunking conscient du contexte pour une récupération d’information optimale"
+  },
+  {
+    "objectID": "projects/novai-qa.html#architecture-technique",
+    "href": "projects/novai-qa.html#architecture-technique",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Architecture technique",
+    "text": "Architecture technique\n\nPhilosophie de conception du système\nL’architecture suit une conception de pipeline modulaire, où chaque composant peut être optimisé et remplacé indépendamment :\n\n\n\nWorkflow Novai QA\n\n\n\n\nPlongée profonde dans les composants principaux\n\n1. Module de web scraping (scraper.py)\nLe système de scraping gère la tâche complexe d’extraire le contenu de romans depuis novelfull.com tout en gérant :\nasync def refresh_database():\n    \"\"\"\n    Découverte interactive de romans et extraction de contenu par lots\n    \"\"\"\n    # Sélection de roman guidée par l'utilisateur\n    keyword = input(\"Please enter a keyword to search for novels: \")\n    \n    # Scraping conscient de Cloudflare avec des en-têtes factices\n    headers = header.generate()\n    connector = aiohttp.TCPConnector(limit=20)\n    \n    # Extraction de chapitres concurrente\n    tasks = [get_page_content(session, url) for url in chapter_urls]\n    chapter_contents = await asyncio.gather(*tasks)\nFonctionnalités clés :\n- Gestion de la protection Cloudflare : Génération d’en-têtes dynamiques et pooling de connexions\n- Traitement concurrent : Opérations async pour des téléchargements par lots efficaces\n- Validation de contenu : Détection automatique et retraitement des téléchargements échoués\n- Intégration base de données : Insertion directe avec résolution de conflits\n\n\n2. Système de chunking intelligent (chunker.py)\nL’algorithme de chunking représente l’un des aspects les plus sophistiqués du système :\ndef chunk_text(text, max_chunk_size=512, overlap=200, tokenizer=None):\n    \"\"\"\n    Chunking adaptatif avec préservation du contexte\n    \"\"\"\n    paragraphs = segment_text(text, max_chunk_size, overlap, tokenizer)\n    \n    # Gestion sophistiquée du chevauchement\n    while current_chunk_size &lt;= size + overlap:\n        if j &gt;= 0 and current_chunk_size &lt;= max_chunk_size - paragraphs[j][1]:\n            current_chunk.insert(0, paragraphs[j][0])\n            current_chunk_size += paragraphs[j][1]\nConception de l’algorithme :\n- Fallback multi-niveau : Segmentation Paragraphe → Phrase → Sous-phrase\n- Chevauchement conscient du contexte : Détection intelligente des limites pour préserver le sens\n- Dimensionnement précis des tokens : Utilise le tokenizer du modèle réel pour un calcul de taille précis\n- Traitement adaptatif : Gère automatiquement les structures de contenu variées\n\n\n3. Système de récupération hybride (retriever.py)\nLe système de récupération combine deux approches complémentaires :\nRecherche sémantique (ChromaDB) :\ndef retrieve_context_chroma(query, novel_name, model, spoiler_threshold=None, k=5):\n    query_prompt = \"Represent this sentence for searching relevant passages: \"\n    query_vector = model.encode(query_prompt + query)\n    query_vector = query_vector / np.linalg.norm(query_vector)\n    \n    if spoiler_threshold:\n        results = collection.query(\n            query_embeddings=[query_vector.tolist()],\n            where={\"chapter_id\": {\"$lte\": spoiler_threshold}}\n        )\nRecherche par mots-clés (BM25) :\ndef retrieve_context_bm25(query, novel_name, spoiler_threshold=None, k=5):\n    # Pipeline de prétraitement avancé\n    query_tokens = preprocess(query)  # Lemmatisation + étiquetage POS\n    bm25 = BM25Okapi(tokenized_docs)\n    scores = bm25.get_scores(query_tokens)\nStratégie de fusion : Le système combine les résultats des deux méthodes, exploitant les forces de chacune :\n- La recherche sémantique excelle dans les requêtes conceptuelles et les synonymes\n- BM25 capture les correspondances exactes de noms et la terminologie spécifique\n- Les résultats combinés fournissent une couverture complète\n\n\n4. Filtrage conscient des spoilers\nLe mécanisme de protection contre les spoilers fonctionne au niveau de la requête de base de données pour l’efficacité :\n# Filtrage basé sur les chapitres dans PostgreSQL\ncursor.execute(\"\"\"\n    SELECT chunks.id, chunks.chunk_content \n    FROM chunks \n    JOIN chapters ON chunks.chapter_id = chapters.id \n    WHERE chapters.novel_id = %s AND chapters.chapter_number &lt;= %s\n\"\"\", (novel_id, spoiler_threshold))\nCette approche assure :\n- Efficacité au niveau de la base de données : Le filtrage se produit pendant la récupération, pas en post-traitement\n- Contrôle précis : Limites de spoilers granulaires par chapitre\n- Agence utilisateur : Protection optionnelle contre les spoilers basée sur la préférence utilisateur\n\n\n5. Génération de réponses (generator.py)\nLe système de génération utilise des prompts soigneusement conçus pour assurer des réponses fondées :\nsystem_prompt = \"\"\"You are a RAG system designed to answer questions about novels \nusing only the retrieved excerpts from the book. Your responses must be grounded \nin the supplied content, without guessing or adding external information.\"\"\"\nFonctionnalités clés :\n- Fondation stricte : Réponses limitées au contenu récupéré seulement\n- Langage naturel : Aucune exposition des mécaniques système aux utilisateurs\n- Gestion des chaînes de pensée : Traitement spécial pour les modèles basés sur le raisonnement\n- Incertitude gracieuse : Admission honnête quand l’information n’est pas disponible"
+  },
+  {
+    "objectID": "projects/novai-qa.html#défis-dimplémentation-et-solutions",
+    "href": "projects/novai-qa.html#défis-dimplémentation-et-solutions",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Défis d’implémentation et solutions",
+    "text": "Défis d’implémentation et solutions\n\nDéfi 1 : Gérer les romans très longs\nProblème : Les romans avec plus de 1000 chapitres génèrent des dizaines de milliers de chunks, rendant la récupération coûteuse en calcul.\nSolution :\n- Filtrage hiérarchique : Filtrage au niveau base de données des romans et chapitres avant la recherche sémantique\n- Traitement par lots : Génération d’embeddings optimisée avec accélération CUDA\n- Pooling de connexions : Gestion efficace des ressources de base de données\n\n\nDéfi 2 : Préservation du contexte entre les chunks\nProblème : L’information critique s’étend souvent au-delà des limites de paragraphes, conduisant à un contexte fragmenté.\nSolution :\n# Chevauchement intelligent avec conscience du contexte\nj = i - 1\nwhile current_chunk_size &lt;= size + overlap:\n    if j &gt;= 0 and current_chunk_size &lt;= max_chunk_size - paragraphs[j][1]:\n        current_chunk.insert(0, paragraphs[j][0])  # Ajouter le contexte précédent\nCela assure que chaque chunk contient suffisamment de contexte pour une compréhension autonome.\n\n\nDéfi 3 : Variations des noms de personnages\nProblème : Les romans web utilisent souvent plusieurs noms/titres pour les personnages, rendant la récupération incohérente.\nSolution : Système de récupération hybride où :\n- BM25 capture les correspondances exactes de noms et variations\n- La recherche sémantique capture les références conceptuelles\n- Les résultats combinés assurent une couverture complète des personnages\n\n\nDéfi 4 : Précision des limites de spoilers\nProblème : Déterminer les limites exactes de spoilers tout en maintenant l’efficacité de récupération.\nSolution : Granularité au niveau chapitre avec filtrage au niveau base de données :\n- Contrôle utilisateur : Spécification explicite de chapitre\n- Approche conservatrice : En cas d’incertitude, prioriser la sécurité des spoilers\n- Implémentation efficace : Optimisation des requêtes PostgreSQL"
+  },
+  {
+    "objectID": "projects/novai-qa.html#analyse-de-performance",
+    "href": "projects/novai-qa.html#analyse-de-performance",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Analyse de performance",
+    "text": "Analyse de performance\n\nMétriques et benchmarks\nPerformance de chunking :\n- Roman moyen (500 chapitres) : ~15-20 minutes de temps de traitement\n- Génération de chunks : ~5,000-8,000 chunks par roman\n- Usage mémoire : ~2-4GB pendant le pic de traitement\nVitesse de récupération :\n- Traitement de requête : &lt;2 secondes en moyenne\n- Recherche hybride : 10 chunks de chaque méthode (20 total)\n- Requêtes base de données : &lt;100ms avec indexation appropriée\nQualité de réponse :\n- Précision fondée : Haute adhérence au matériel source\n- Cohérence contextuelle : Performance forte due à la stratégie de chevauchement\n- Sécurité spoilers : 100% quand le seuil est correctement défini\n\n\nConsidérations de scalabilité\nLimites actuelles : - Focus sur un seul roman (par conception)\n- Exigences mémoire GPU pour les embeddings\n- Mise à l’échelle du stockage PostgreSQL avec le nombre de romans\nOpportunités d’optimisation :\n- Cache des chunks fréquemment accédés\n- Embeddings pré-calculés pour les requêtes communes\n- Texte prétraité (lemmatisé + étiquetage POS) pour les requêtes communes\n- Traitement distribué pour plusieurs romans"
+  },
+  {
+    "objectID": "projects/novai-qa.html#conception-de-lexpérience-utilisateur",
+    "href": "projects/novai-qa.html#conception-de-lexpérience-utilisateur",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Conception de l’expérience utilisateur",
+    "text": "Conception de l’expérience utilisateur\n\nPhilosophie d’interface\nL’interface Gradio priorise la simplicité tout en fournissant les contrôles essentiels :\nwith gr.Blocks(title=\"Novel Assistant Chatbot\", theme=gr.themes.Soft()) as demo:\n    novel_name = gr.Textbox(label=\"Novel Name\")\n    spoiler_threshold = gr.Number(label=\"Current Chapter (optional)\")\n    chatbot = gr.Chatbot(height=500, bubble_full_width=False)\n Figure : Interface Novai QA au lancement, montrant la conception minimaliste et l’entrée de contrôle des spoilers.\nPrincipes de conception :\n- Charge cognitive minimale : Contrôles essentiels uniquement\n- Contrôle de spoilers clair : Mécanisme d’entrée de chapitre évident\n- Flux conversationnel : Interface de chat naturelle\n- Feedback immédiat : Génération de réponse en temps réel\n\n\nPatterns d’interaction\nFlux utilisateur typique :\n1. Sélection de roman : Entrer le nom du roman (correspondance exacte requise)\n2. Réglage de progression : Spécifier le chapitre actuel (optionnel mais recommandé)\n3. Requête naturelle : Poser des questions en langage conversationnel\n4. Exploration itérative : Suivre avec des questions liées\nExemples d’interactions :\nUtilisateur : \"Qui est le personnage principal dans Supreme Magus ?\"\nSystème : \"Basé sur le contenu de l'histoire, le personnage principal est Lith...\"\n\nUtilisateur : \"Quelles sont ses capacités ?\"\nSystème : \"Lith démontre plusieurs capacités clés incluant...\""
+  },
+  {
+    "objectID": "projects/novai-qa.html#stack-technique-et-dépendances",
+    "href": "projects/novai-qa.html#stack-technique-et-dépendances",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Stack technique et dépendances",
+    "text": "Stack technique et dépendances\n\nTechnologies principales\nFramework backend :\n- Python 3.12+ : Langage de développement principal\n- PostgreSQL : Stockage de données primaire\n- ChromaDB : Recherche de similarité vectorielle\n- Ollama : Service LLM local\nMachine Learning :\n- SentenceTransformers : Génération d’embeddings\n- NLTK : Pipeline de prétraitement de texte\n- rank-bm25 : Implémentation de recherche par mots-clés\nTechnologies web :\n- Gradio : Interface interactive\n- aiohttp : Web scraping asynchrone\n- BeautifulSoup : Parsing HTML\n\n\nExigences matérielles\nSpécifications minimales :\n- 16GB RAM (pour les modèles d’embeddings)\n- GPU compatible CUDA (recommandé)\n- 10GB+ stockage (varie selon le nombre de romans)\n- Internet stable (pour le scraping initial)\nConfiguration optimale :\n- 32GB+ RAM\n- RTX 3080/4080 ou équivalent\n- Stockage SSD pour la performance de base de données\n- Connexion internet haut débit"
+  },
+  {
+    "objectID": "projects/novai-qa.html#rétrospective-de-développement",
+    "href": "projects/novai-qa.html#rétrospective-de-développement",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Rétrospective de développement",
+    "text": "Rétrospective de développement\n\nComplexité de chunking sous-estimée : Initialement assumé être une tâche simple, l’implémentation du chunking basé sur le chevauchement s’est révélée significativement plus complexe. Développement d’une solution personnalisée après avoir fait face à de multiples cas limites dans la préservation du contexte.\n\nExploration de vector store : Commencé avec FAISS mais abandonné en raison du manque de filtrage natif des métadonnées. Considéré Milvus, mais il n’était pas disponible sur Windows au moment du développement.\n\nRéalisation de récupération hybride : BM25 a été introduit pour compléter la recherche sémantique mais a donné de mauvais résultats sans lemmatisation. Une lemmatisation efficace nécessitait l’étiquetage POS, ce qui ajoutait une surcharge de traitement.\n\nImpact matériel sur les embeddings : L’encodage de ~1000 chapitres avec un GPU a pris ~40 minutes ; le temps CPU estimé dépassait 8 heures. A souligné l’écart critique de performance entre CPU et matériel compatible CUDA.\n\nMigration de base de données : Transition de SQLite vers PostgreSQL pour un filtrage robuste et des requêtes relationnelles. Cependant, ChromaDB a continué à utiliser SQLite3 localement comme backend.\n\nLogging opérationnel : Introduction du logging au niveau application pour surveiller plus systématiquement les processus de scraping, chunking et récupération."
+  },
+  {
+    "objectID": "projects/novai-qa.html#leçons-apprises-et-directions-futures",
+    "href": "projects/novai-qa.html#leçons-apprises-et-directions-futures",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Leçons apprises et directions futures",
+    "text": "Leçons apprises et directions futures\n\nInsights clés\n\nLa stratégie de chunking compte : La qualité de segmentation de texte impacte directement la qualité de récupération\nLes approches hybrides gagnent : Combiner recherche sémantique et par mots-clés fournit une couverture supérieure\nL’agence utilisateur est critique : Le contrôle des spoilers doit être piloté par l’utilisateur, pas assumé par le système\nLes avantages du traitement local : Les avantages de confidentialité et contrôle surpassent la commodité des API cloud\n\n\n\nAméliorations futures\nAméliorations techniques :\n- Reranking avancé : Scoring de pertinence basé sur LLM pour le contenu récupéré\n- Support multi-romans : Gestion concurrente de multiples sources de romans\n- Conversation multi-tour : Traitement conscient du contexte pour les requêtes de suivi\n- Mémoire de conversation : Contexte persistant à travers les sessions de chat\n- Système de mise à jour automatique : Synchronisation périodique du contenu avec les bases de données de romans\nExpérience utilisateur :\n- Progressive Web App : Interface optimisée mobile\n- Intégration progression de lecture : Suivi automatique des chapitres\n- Fonctionnalités sociales : Discussions partagées avec conscience des spoilers\n- Personnalisation : Apprentissage et adaptation des préférences utilisateur\nScalabilité et performance :\n- Couche de cache : Intégration Redis pour les requêtes fréquentes\n- Traitement distribué : Génération d’embeddings multi-GPU\n- Développement API : Endpoints REST pour intégrations tierces\n- Containerisation : Déploiement Docker pour mise à l’échelle facile"
+  },
+  {
+    "objectID": "projects/novai-qa.html#conclusion",
+    "href": "projects/novai-qa.html#conclusion",
+    "title": "Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers",
+    "section": "Conclusion",
+    "text": "Conclusion\nLe projet Novai QA démontre l’application pratique de techniques NLP modernes pour résoudre des problèmes du monde réel dans la consommation de littérature numérique. En combinant web scraping, traitement de texte avancé, systèmes de récupération hybrides et génération LLM locale, le système fournit une solution unique au défi de gestion des spoilers.\nLe projet présente plusieurs compétences techniques clés :\n- Développement full-stack : De la conception de base de données à l’interface web\n- Ingénierie de pipeline NLP : Workflows de traitement de texte bout en bout\n- Architecture de système RAG : Récupération et génération d’information modernes\n- Programmation asynchrone : Traitement concurrent efficace\n- Optimisation de base de données : Performance de requêtes et modélisation de données\nPlus important encore, il répond à un besoin utilisateur genuine avec une approche réfléchie et techniquement solide qui priorise le contrôle utilisateur et la sécurité du contenu.\n\nCe projet fait partie de mon portfolio démontrant l’expertise en NLP, systèmes RAG et développement full-stack. Le code complet et la documentation sont disponibles sur GitHub."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nMohamed El Ghali BENABOU\n",
+    "section": "",
+    "text": "Data Scientist & Ingénieur en apprentissage automatique\n\n\n\nJe me spécialise dans la transformation de données complexes en informations exploitables grâce au traitement du langage naturel, à l’apprentissage automatique et aux systèmes intelligents. De la modélisation de sujets à la création de pipelines RAG avec des LLM, je conçois des solutions qui relient théorie et impact concret.\n\n\n« Les bonnes idées méritent une exécution solide — même si cela commence modestement. »\n\n\nVoir les projets À propos\n\n\n\nCompétences clés\n\nTraitement automatique du langage naturel\nApprentissage automatique\nSystèmes RAG\nAnalyse de données\n\n\n\nContact\nJe suis toujours intéressé par de nouveaux défis et opportunités. Consultez mon travail et prenez contact.\n\nGitHub\nLinkedIn\nEmail"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "À Propos",
+    "section": "",
+    "text": "Mohamed El Ghali BENABOU\nData Scientist avec formation académique en mathématiques et économétrie. Titulaire d’un Master en Statistiques et Économétrie (Université Mohammed V) et d’une Licence en Mathématiques (Université Jean-François Champollion)."
+  },
+  {
+    "objectID": "about.html#expertise",
+    "href": "about.html#expertise",
+    "title": "À Propos",
+    "section": "Expertise",
+    "text": "Expertise\nDomaines de spécialisation :\n- Machine Learning\n- Traitement du Langage Naturel (NLP)\n- Deep Learning\n- Prévision de Séries Temporelles\n- Systèmes de Génération Augmentée par Récupération (RAG)\nMaîtrise des architectures Transformer, BERTopic, et de l’analyse de textes liés à l’ESG. Développement et déploiement de modèles impliquant des pipelines complets : extraction de données, préprocessing, modélisation, évaluation."
+  },
+  {
+    "objectID": "about.html#expérience-professionnelle",
+    "href": "about.html#expérience-professionnelle",
+    "title": "À Propos",
+    "section": "Expérience Professionnelle",
+    "text": "Expérience Professionnelle\nStagiaire — AIOX LABS, ToumAI Analytics\nJuillet 2023 – Janvier 2024\n- Conception d’un pipeline d’évaluation d’impact ESG basé sur LLM pour les entreprises africaines\n- Automatisation de la collecte de données depuis Twitter, YouTube et Reddit\n- Application de BERTopic pour la modélisation thématique et la classification de sentiment\n- Génération de rapports analytiques et de visualisations de données"
+  },
+  {
+    "objectID": "about.html#outils-langages",
+    "href": "about.html#outils-langages",
+    "title": "À Propos",
+    "section": "Outils & Langages",
+    "text": "Outils & Langages\nProgrammation : Python, R, SQL, HTML/CSS, C\nFrameworks : Scikit-Learn, TensorFlow, PyTorch, Keras, LangChain\nBibliothèques : NumPy, Pandas, Matplotlib, ggplot2, dplyr\nTechnologies : Flask, FastAPI, React\nUtilitaires : Git, Docker, Jupyter, Selenium, BeautifulSoup"
+  },
+  {
+    "objectID": "about.html#certifications",
+    "href": "about.html#certifications",
+    "title": "À Propos",
+    "section": "Certifications",
+    "text": "Certifications\n\nDeep Learning Specialization — DeepLearning.AI (2023)\n\nNatural Language Processing Specialization — Coursera (en cours)\n\nMachine Learning Specialization — Coursera (en cours)\n\nComplete Machine Learning & Data Science Bootcamp — Udemy (2022)\n\nComplete Python Developer — Udemy (2021)"
+  },
+  {
+    "objectID": "about.html#projets",
+    "href": "about.html#projets",
+    "title": "À Propos",
+    "section": "Projets",
+    "text": "Projets\nVoir la page Projets pour :\n\nNovai-qa : Système de questions-réponses sur romans sans spoilers utilisant RAG\n\nNovAI : Application web avec TTS pour écouter des romans en ligne\n\nFriend : Chatbot à commande vocale utilisant des LLM locaux et Groq"
+  },
+  {
+    "objectID": "about.html#langues",
+    "href": "about.html#langues",
+    "title": "À Propos",
+    "section": "Langues",
+    "text": "Langues\n\nArabe : Langue maternelle\n\nFrançais : Bilingue\n\nAnglais : Courant (TOEIC 950)"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html",
+    "href": "projects/friend-chatbot.html",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "",
+    "text": "Friend est un chatbot vocal développé comme un outil expérimental — ou, comme son nom l’indique, un petit “ami” avec qui vous pouvez parler. Il fonctionne soit en utilisant des LLM locaux soit en se connectant à l’API Groq si aucun modèle local n’est disponible.\nL’objectif n’était pas de résoudre un problème business, mais de tester jusqu’où on peut aller en combinant l’entrée vocale, les modèles de langage, et la sortie TTS avec un outillage minimal."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#aperçu",
+    "href": "projects/friend-chatbot.html#aperçu",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "",
+    "text": "Friend est un chatbot vocal développé comme un outil expérimental — ou, comme son nom l’indique, un petit “ami” avec qui vous pouvez parler. Il fonctionne soit en utilisant des LLM locaux soit en se connectant à l’API Groq si aucun modèle local n’est disponible.\nL’objectif n’était pas de résoudre un problème business, mais de tester jusqu’où on peut aller en combinant l’entrée vocale, les modèles de langage, et la sortie TTS avec un outillage minimal."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#comment-ça-fonctionne",
+    "href": "projects/friend-chatbot.html#comment-ça-fonctionne",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "Comment ça fonctionne",
+    "text": "Comment ça fonctionne\nIl y a deux façons d’exécuter l’application : - Une interface Jupyter Notebook - Une version CLI Python\n\nSous le capot :\n\n\n\nFriend Chatbot Workflow\n\n\n\nUne boucle while attend l’entrée utilisateur\nSi aucune parole n’est détectée après 2 secondes, elle :\n\nEnregistre l’audio\nLe convertit en texte\nEnregistre l’entrée dans un historique basé sur fichier texte simple\n\nEnsuite :\n\nSi un LLM local est disponible, elle y execute l’entrée\nSi cela échoue, elle envoie l’entrée à l’API Groq (LLM externe)\n\nUne fois qu’une réponse est reçue :\n\nLa réponse est ajoutée à l’historique\nElle est prononcée à l’utilisateur via TTS\nL’application attend ensuite le message suivant\n\n\n\n\nDétail UX\nIl s’agit d’un outil expérimental — construit pour tester, apprendre, et mieux comprendre ce que signifie parler aux machines de manière plus naturelle. Il n’a pas été conçu pour scaler, mais pour servir de proof of concept pour une interaction privée et vocale avec les modèles de langage. C’est simple, et ça fonctionne."
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#stack-technique",
+    "href": "projects/friend-chatbot.html#stack-technique",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "Stack Technique",
+    "text": "Stack Technique\n\nPython (CLI + Notebook)\nTTS + Reconnaissance vocale\nLLMs (API Groq, Fallback modèle local — Ollama)\nLogging et historique basés sur fichiers"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#notes",
+    "href": "projects/friend-chatbot.html#notes",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "Notes",
+    "text": "Notes\n\n“La partie la plus intéressante était de réaliser à quel point c’est simple à construire avec les bons outils. Ce n’est pas sophistiqué — mais ça fonctionne. Et c’était amusant à créer.”"
+  },
+  {
+    "objectID": "projects/friend-chatbot.html#code",
+    "href": "projects/friend-chatbot.html#code",
+    "title": "Friend – Un Chatbot Vocal Privé",
+    "section": "Code",
+    "text": "Code\n\nGitHub Repository – Friend\n\n\nIl s’agit d’un outil expérimental — construit pour tester, apprendre, et mieux comprendre ce que signifie parler aux machines de manière plus naturelle. Il sert également de proof of concept pour une interaction privée et vocale avec les modèles de langage. C’est simple, et ça fonctionne."
+  },
+  {
+    "objectID": "projects/novai.html",
+    "href": "projects/novai.html",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "",
+    "text": "NovAI est une application web full-stack qui transforme les romans en ligne en une expérience d’écoute accessible. Elle combine la technologie de web scraping avec des capacités de synthèse vocale pour permettre aux utilisateurs de lire et d’écouter des romans avec une mise en surbrillance des paragraphes en temps réel.\nLe projet comprend un frontend React avec Material UI pour l’interface et un backend Python (FastAPI/Flask) qui gère la récupération et le traitement des romans. Cette séparation des préoccupations permet une expérience utilisateur réactive tout en gérant efficacement le traitement des données côté serveur.\n\n\n\nInterface principale NovAI"
+  },
+  {
+    "objectID": "projects/novai.html#présentation",
+    "href": "projects/novai.html#présentation",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "",
+    "text": "NovAI est une application web full-stack qui transforme les romans en ligne en une expérience d’écoute accessible. Elle combine la technologie de web scraping avec des capacités de synthèse vocale pour permettre aux utilisateurs de lire et d’écouter des romans avec une mise en surbrillance des paragraphes en temps réel.\nLe projet comprend un frontend React avec Material UI pour l’interface et un backend Python (FastAPI/Flask) qui gère la récupération et le traitement des romans. Cette séparation des préoccupations permet une expérience utilisateur réactive tout en gérant efficacement le traitement des données côté serveur.\n\n\n\nInterface principale NovAI"
+  },
+  {
+    "objectID": "projects/novai.html#histoire-du-projet",
+    "href": "projects/novai.html#histoire-du-projet",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Histoire du Projet",
+    "text": "Histoire du Projet\nEn tant que lecteur passionné de webnovels, je me retrouvais à copier-coller manuellement les chapitres depuis les sites web dans des outils TTS juste pour les écouter. Ce processus a commencé par des allers-retours entre onglets et du copier-coller de chaque chapitre individuellement, puis a évolué vers une automatisation basique utilisant des scripts AHK. Finalement, j’ai découvert le web scraping, qui m’a permis de télécharger les chapitres par lots dans un fichier texte—accélérant considérablement le processus.\nCe workflow fonctionnait, mais il manquait d’élégance. Je voulais quelque chose de plus fluide, plus rapide et plus accessible—alors j’ai construit NovAI. Avec un pipeline frontend et backend complet, le scraping de chapitres est devenu instantané, et l’écoute fluide. Ce qui a commencé comme une solution personnelle à une tâche répétitive s’est transformé en un outil conçu pour le confort et l’efficacité."
+  },
+  {
+    "objectID": "projects/novai.html#fonctionnalités-clés",
+    "href": "projects/novai.html#fonctionnalités-clés",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Fonctionnalités Clés",
+    "text": "Fonctionnalités Clés\n\nRécupération de Contenu de Romans : Recherche et récupération de romans par mots-clés depuis des sources en ligne\nSynthèse Vocale Interactive : Écoute de romans avec vitesse de lecture ajustable (0.5x à 2.5x)\nSuivi Visuel en Temps Réel : Les paragraphes sont surlignés pendant qu’ils sont lus\nContrôles de Lecture Complets : Fonctionnalités de lecture, pause et arrêt\nGestion de Contenu : Copier le texte dans le presse-papiers ou télécharger sous forme de fichiers TXT\nDesign Responsive : Optimisé pour diverses tailles d’écran\nMise en Cache de Contenu : Mise en cache côté serveur pour améliorer les performances"
+  },
+  {
+    "objectID": "projects/novai.html#stack-technique",
+    "href": "projects/novai.html#stack-technique",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Stack Technique",
+    "text": "Stack Technique\n\nFrontend\n\nReact : Développement d’interface utilisateur basé sur des composants\nMaterial UI : Système de design pour un style et un thème cohérents\nMoteur TTS-Reader.com : Intégration de service de synthèse vocale externe\nReact Hooks : Gestion d’état et cycle de vie des composants\nFetch API : Communication avec les services backend\n\n\n\nBackend\n\nFastAPI/Flask : Points d’API pour la récupération de contenu\naiohttp/BeautifulSoup4 : Web scraping asynchrone\nSQLite : Base de données de mise en cache de contenu\nasyncio : Framework d’E/S asynchrone\nPydantic : Validation de données et gestion des paramètres"
+  },
+  {
+    "objectID": "projects/novai.html#architecture",
+    "href": "projects/novai.html#architecture",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Architecture",
+    "text": "Architecture\n\n\n\nWorkflow Novai\n\n\nL’application suit une architecture client-serveur avec services externes :\n\nClient (React) : Gère l’interface utilisateur et la visualisation\nMoteur TTS-Reader.com : Fournit une fonctionnalité de synthèse vocale de haute qualité\nServeur (FastAPI/Flask) : Gère la découverte de romans, le scraping de contenu et le traitement de texte\nBase de Données (SQLite) : Met en cache le contenu scrapé pour améliorer les performances et réduire la charge sur les sites sources"
+  },
+  {
+    "objectID": "projects/novai.html#détails-dimplémentation",
+    "href": "projects/novai.html#détails-dimplémentation",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Détails d’Implémentation",
+    "text": "Détails d’Implémentation\n\nImplémentation Frontend\nL’application React fournit une interface intuitive pour la lecture de romans avec ces composants principaux :\n\nInterface de Recherche : Permet aux utilisateurs de spécifier les mots-clés de romans et les paramètres de chapitres\nAffichage de Contenu : Rend le contenu de roman récupéré avec un formatage approprié\nIntégration Moteur TTS : Se connecte aux capacités natives de synthèse vocale du navigateur\nSystème de Suivi Visuel : Surligne les paragraphes en temps réel pendant la lecture\nLayout Responsive : S’adapte à différentes tailles d’écran en utilisant Material UI Grid\n\n// Exemple d'implémentation TTS avec le moteur TTS-Reader.com\nuseEffect(() =&gt; {\n  if (!window.wsGlobals || !window.wsGlobals.TtsEngine) {\n    console.error(\"TTS engine (wsGlobals.TtsEngine) is not available.\");\n    return;\n  }\n  \n  const tts = window.wsGlobals.TtsEngine;\n  ttsRef.current = tts;\n\n  tts.init({\n    onInit: (voices) =&gt; {\n      console.log(\"TTS Initialized.\");\n      tts.setRate(readingRate);\n      try {\n        tts.setVoiceByUri(\"urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US\");\n      } catch (e) {\n        console.warn(\"Could not set preferred voice, using default.\", e);\n      }\n    },\n    onStart: () =&gt; { console.log(\"Speech started for a segment.\"); },\n    onDone: handleSpeechDone,\n    onError: (err) =&gt; {\n      console.error(\"TTS Error:\", err);\n      setIsPlaying(false);\n      highlightParagraph(-1);\n    }\n  });\n  \n  // Fonction de nettoyage\n  return () =&gt; {\n    if (timerRef.current) clearTimeout(timerRef.current);\n    if (ttsRef.current) ttsRef.current.stop();\n    ttsRef.current = null;\n  };\n}, [textArray, readingRate, speakParagraph]);\n\n\nImplémentation Backend\nLe backend Python gère le gros du travail de récupération de contenu :\n\nRecherche de Romans : Trouve le bon roman basé sur les mots-clés utilisateur\nScraping de Contenu : Extrait le contenu des chapitres depuis les sources web\nTraitement de Texte : Nettoie et formate le texte pour une lecture/écoute optimale\nFormatage de Réponse : Retourne des données structurées avec du contenu brut et formaté\nSystème de Cache : Stocke le contenu précédemment récupéré pour améliorer les performances\n\nasync def get_text(keyword, chapter, number):\n    async with aiohttp.ClientSession(headers=headers) as session:\n        urls, novel_title, novel_image = await get_urls(session, number, chapter, keyword)\n\n        tasks = [get_page_content(session, url) for url in urls]\n        texts = await asyncio.gather(*tasks)\n\n        text = '\\n'.join(texts)\n        text = preprocess(text)\n\n        text_array = [par.strip() for par in text.split(\"\\n\")]\n        text_formatted = \"\".join([f'&lt;p id=\"par{i}\"&gt;{par}&lt;/p&gt;' for i, par in enumerate(text_array)])\n\n        return {\n            'text': text,\n            \"title\": novel_title,\n            \"image\": novel_image,\n            \"formatted\": text_formatted,\n            \"array\": text_array\n        }"
+  },
+  {
+    "objectID": "projects/novai.html#défis-et-solutions",
+    "href": "projects/novai.html#défis-et-solutions",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Défis et Solutions",
+    "text": "Défis et Solutions\n\n\n\n\n\n\n\nDéfi\nSolution\n\n\n\n\nFiabilité du Web Scraping\nImplémentation de gestion d’erreurs robuste et mécanismes de fallback\n\n\nPerformance TTS\nOptimisation du traitement de texte pour une meilleure synthèse vocale\n\n\nVariété de Contenu\nDéveloppement d’une logique d’analyse flexible pour gérer différents formats de romans\n\n\nLimitations Cross-Origin\nConfiguration appropriée de la gestion CORS sur le backend\n\n\nSuivi de Position de Lecture\nCréation d’une synchronisation personnalisée entre texte et voix"
+  },
+  {
+    "objectID": "projects/novai.html#améliorations-futures",
+    "href": "projects/novai.html#améliorations-futures",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Améliorations Futures",
+    "text": "Améliorations Futures\n\nComptes Utilisateur : Sauvegarder la progression de lecture et les préférences\nSupport de Voix Personnalisées : Permettre aux utilisateurs de sélectionner différentes voix TTS\nSupport Hors Ligne : Capacités Progressive Web App pour la lecture hors ligne\nRecherche Avancée : Filtrer les romans par genre, auteur et note\nApplications Mobiles : Versions mobiles natives pour iOS et Android\nSupport Multi-langues : Élargir au-delà du contenu anglais"
+  },
+  {
+    "objectID": "projects/novai.html#leçons-apprises",
+    "href": "projects/novai.html#leçons-apprises",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Leçons Apprises",
+    "text": "Leçons Apprises\nLe développement de NovAI a fourni des insights précieux sur :\n\nIntégration Full-Stack : Équilibrer les responsabilités frontend et backend\nAPI Web Speech : Travailler avec la synthèse vocale basée sur le navigateur\nTraitement Asynchrone : Gérer les opérations concurrentes en Python\nDesign d’Expérience Utilisateur : Créer une interface intuitive pour le contenu audio\nTraitement de Contenu : Transformer le contenu web en formats accessibles"
+  },
+  {
+    "objectID": "projects/novai.html#code",
+    "href": "projects/novai.html#code",
+    "title": "NovAI - Lecteur de Romans Interactif",
+    "section": "Code",
+    "text": "Code\n\nDépôt GitHub – Frontend\nDépôt GitHub – Backend"
+  }
+]

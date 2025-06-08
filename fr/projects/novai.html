@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>NovAI - Lecteur de Romans Interactif – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Accueil</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">À Propos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../#"> 
+<span class="menu-text">English</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a></li>
+  <li><a href="#histoire-du-projet" id="toc-histoire-du-projet" class="nav-link" data-scroll-target="#histoire-du-projet">Histoire du Projet</a></li>
+  <li><a href="#fonctionnalités-clés" id="toc-fonctionnalités-clés" class="nav-link" data-scroll-target="#fonctionnalités-clés">Fonctionnalités Clés</a></li>
+  <li><a href="#stack-technique" id="toc-stack-technique" class="nav-link" data-scroll-target="#stack-technique">Stack Technique</a>
+  <ul class="collapse">
+  <li><a href="#frontend" id="toc-frontend" class="nav-link" data-scroll-target="#frontend">Frontend</a></li>
+  <li><a href="#backend" id="toc-backend" class="nav-link" data-scroll-target="#backend">Backend</a></li>
+  </ul></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#détails-dimplémentation" id="toc-détails-dimplémentation" class="nav-link" data-scroll-target="#détails-dimplémentation">Détails d’Implémentation</a>
+  <ul class="collapse">
+  <li><a href="#implémentation-frontend" id="toc-implémentation-frontend" class="nav-link" data-scroll-target="#implémentation-frontend">Implémentation Frontend</a></li>
+  <li><a href="#implémentation-backend" id="toc-implémentation-backend" class="nav-link" data-scroll-target="#implémentation-backend">Implémentation Backend</a></li>
+  </ul></li>
+  <li><a href="#défis-et-solutions" id="toc-défis-et-solutions" class="nav-link" data-scroll-target="#défis-et-solutions">Défis et Solutions</a></li>
+  <li><a href="#améliorations-futures" id="toc-améliorations-futures" class="nav-link" data-scroll-target="#améliorations-futures">Améliorations Futures</a></li>
+  <li><a href="#leçons-apprises" id="toc-leçons-apprises" class="nav-link" data-scroll-target="#leçons-apprises">Leçons Apprises</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">NovAI - Lecteur de Romans Interactif</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="présentation" class="level2">
+<h2 class="anchored" data-anchor-id="présentation">Présentation</h2>
+<p><strong>NovAI</strong> est une application web full-stack qui transforme les romans en ligne en une expérience d’écoute accessible. Elle combine la technologie de web scraping avec des capacités de synthèse vocale pour permettre aux utilisateurs de lire et d’écouter des romans avec une mise en surbrillance des paragraphes en temps réel.</p>
+<p>Le projet comprend un frontend React avec Material UI pour l’interface et un backend Python (FastAPI/Flask) qui gère la récupération et le traitement des romans. Cette séparation des préoccupations permet une expérience utilisateur réactive tout en gérant efficacement le traitement des données côté serveur.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/novai-screenshot.png" class="img-fluid figure-img"></p>
+<figcaption>Interface principale NovAI</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="histoire-du-projet" class="level2">
+<h2 class="anchored" data-anchor-id="histoire-du-projet">Histoire du Projet</h2>
+<p>En tant que lecteur passionné de webnovels, je me retrouvais à copier-coller manuellement les chapitres depuis les sites web dans des outils TTS juste pour les écouter. Ce processus a commencé par des allers-retours entre onglets et du copier-coller de chaque chapitre individuellement, puis a évolué vers une automatisation basique utilisant des scripts AHK. Finalement, j’ai découvert le web scraping, qui m’a permis de télécharger les chapitres par lots dans un fichier texte—accélérant considérablement le processus.</p>
+<p>Ce workflow fonctionnait, mais il manquait d’élégance. Je voulais quelque chose de plus fluide, plus rapide et plus accessible—alors j’ai construit NovAI. Avec un pipeline frontend et backend complet, le scraping de chapitres est devenu instantané, et l’écoute fluide. Ce qui a commencé comme une solution personnelle à une tâche répétitive s’est transformé en un outil conçu pour le confort et l’efficacité.</p>
+<hr>
+</section>
+<section id="fonctionnalités-clés" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnalités-clés">Fonctionnalités Clés</h2>
+<ul>
+<li><strong>Récupération de Contenu de Romans</strong> : Recherche et récupération de romans par mots-clés depuis des sources en ligne</li>
+<li><strong>Synthèse Vocale Interactive</strong> : Écoute de romans avec vitesse de lecture ajustable (0.5x à 2.5x)</li>
+<li><strong>Suivi Visuel en Temps Réel</strong> : Les paragraphes sont surlignés pendant qu’ils sont lus</li>
+<li><strong>Contrôles de Lecture Complets</strong> : Fonctionnalités de lecture, pause et arrêt</li>
+<li><strong>Gestion de Contenu</strong> : Copier le texte dans le presse-papiers ou télécharger sous forme de fichiers TXT</li>
+<li><strong>Design Responsive</strong> : Optimisé pour diverses tailles d’écran</li>
+<li><strong>Mise en Cache de Contenu</strong> : Mise en cache côté serveur pour améliorer les performances</li>
+</ul>
+<hr>
+</section>
+<section id="stack-technique" class="level2">
+<h2 class="anchored" data-anchor-id="stack-technique">Stack Technique</h2>
+<section id="frontend" class="level3">
+<h3 class="anchored" data-anchor-id="frontend">Frontend</h3>
+<ul>
+<li><strong>React</strong> : Développement d’interface utilisateur basé sur des composants</li>
+<li><strong>Material UI</strong> : Système de design pour un style et un thème cohérents</li>
+<li><strong>Moteur TTS-Reader.com</strong> : Intégration de service de synthèse vocale externe</li>
+<li><strong>React Hooks</strong> : Gestion d’état et cycle de vie des composants</li>
+<li><strong>Fetch API</strong> : Communication avec les services backend</li>
+</ul>
+</section>
+<section id="backend" class="level3">
+<h3 class="anchored" data-anchor-id="backend">Backend</h3>
+<ul>
+<li><strong>FastAPI/Flask</strong> : Points d’API pour la récupération de contenu</li>
+<li><strong>aiohttp/BeautifulSoup4</strong> : Web scraping asynchrone</li>
+<li><strong>SQLite</strong> : Base de données de mise en cache de contenu</li>
+<li><strong>asyncio</strong> : Framework d’E/S asynchrone</li>
+<li><strong>Pydantic</strong> : Validation de données et gestion des paramètres</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/novai-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow Novai</figcaption>
+</figure>
+</div>
+<p>L’application suit une architecture client-serveur avec services externes :</p>
+<ol type="1">
+<li><strong>Client (React)</strong> : Gère l’interface utilisateur et la visualisation</li>
+<li><strong>Moteur TTS-Reader.com</strong> : Fournit une fonctionnalité de synthèse vocale de haute qualité</li>
+<li><strong>Serveur (FastAPI/Flask)</strong> : Gère la découverte de romans, le scraping de contenu et le traitement de texte</li>
+<li><strong>Base de Données (SQLite)</strong> : Met en cache le contenu scrapé pour améliorer les performances et réduire la charge sur les sites sources</li>
+</ol>
+<hr>
+</section>
+<section id="détails-dimplémentation" class="level2">
+<h2 class="anchored" data-anchor-id="détails-dimplémentation">Détails d’Implémentation</h2>
+<section id="implémentation-frontend" class="level3">
+<h3 class="anchored" data-anchor-id="implémentation-frontend">Implémentation Frontend</h3>
+<p>L’application React fournit une interface intuitive pour la lecture de romans avec ces composants principaux :</p>
+<ul>
+<li><strong>Interface de Recherche</strong> : Permet aux utilisateurs de spécifier les mots-clés de romans et les paramètres de chapitres</li>
+<li><strong>Affichage de Contenu</strong> : Rend le contenu de roman récupéré avec un formatage approprié</li>
+<li><strong>Intégration Moteur TTS</strong> : Se connecte aux capacités natives de synthèse vocale du navigateur</li>
+<li><strong>Système de Suivi Visuel</strong> : Surligne les paragraphes en temps réel pendant la lecture</li>
+<li><strong>Layout Responsive</strong> : S’adapte à différentes tailles d’écran en utilisant Material UI Grid</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Exemple d'implémentation TTS avec le moteur TTS-Reader.com</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">useEffect</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span><span class="bu">window</span><span class="op">.</span><span class="at">wsGlobals</span> <span class="op">||</span> <span class="op">!</span><span class="bu">window</span><span class="op">.</span><span class="at">wsGlobals</span><span class="op">.</span><span class="at">TtsEngine</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">"TTS engine (wsGlobals.TtsEngine) is not available."</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tts <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">wsGlobals</span><span class="op">.</span><span class="at">TtsEngine</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ttsRef<span class="op">.</span><span class="at">current</span> <span class="op">=</span> tts<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  tts<span class="op">.</span><span class="fu">init</span>({</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">onInit</span><span class="op">:</span> (voices) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"TTS Initialized."</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      tts<span class="op">.</span><span class="fu">setRate</span>(readingRate)<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">try</span> {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        tts<span class="op">.</span><span class="fu">setVoiceByUri</span>(<span class="st">"urn:moz-tts:sapi:Microsoft Zira Desktop - English (United States)?en-US"</span>)<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">catch</span> (e) {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">warn</span>(<span class="st">"Could not set preferred voice, using default."</span><span class="op">,</span> e)<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">onStart</span><span class="op">:</span> () <span class="kw">=&gt;</span> { <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Speech started for a segment."</span>)<span class="op">;</span> }<span class="op">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">onDone</span><span class="op">:</span> handleSpeechDone<span class="op">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">onError</span><span class="op">:</span> (err) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">"TTS Error:"</span><span class="op">,</span> err)<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">setIsPlaying</span>(<span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">highlightParagraph</span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Fonction de nettoyage</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (timerRef<span class="op">.</span><span class="at">current</span>) <span class="pp">clearTimeout</span>(timerRef<span class="op">.</span><span class="at">current</span>)<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (ttsRef<span class="op">.</span><span class="at">current</span>) ttsRef<span class="op">.</span><span class="at">current</span><span class="op">.</span><span class="fu">stop</span>()<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    ttsRef<span class="op">.</span><span class="at">current</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> [textArray<span class="op">,</span> readingRate<span class="op">,</span> speakParagraph])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="implémentation-backend" class="level3">
+<h3 class="anchored" data-anchor-id="implémentation-backend">Implémentation Backend</h3>
+<p>Le backend Python gère le gros du travail de récupération de contenu :</p>
+<ul>
+<li><strong>Recherche de Romans</strong> : Trouve le bon roman basé sur les mots-clés utilisateur</li>
+<li><strong>Scraping de Contenu</strong> : Extrait le contenu des chapitres depuis les sources web</li>
+<li><strong>Traitement de Texte</strong> : Nettoie et formate le texte pour une lecture/écoute optimale</li>
+<li><strong>Formatage de Réponse</strong> : Retourne des données structurées avec du contenu brut et formaté</li>
+<li><strong>Système de Cache</strong> : Stocke le contenu précédemment récupéré pour améliorer les performances</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> get_text(keyword, chapter, number):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> aiohttp.ClientSession(headers<span class="op">=</span>headers) <span class="im">as</span> session:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        urls, novel_title, novel_image <span class="op">=</span> <span class="cf">await</span> get_urls(session, number, chapter, keyword)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        tasks <span class="op">=</span> [get_page_content(session, url) <span class="cf">for</span> url <span class="kw">in</span> urls]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        texts <span class="op">=</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>tasks)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>.join(texts)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> preprocess(text)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        text_array <span class="op">=</span> [par.strip() <span class="cf">for</span> par <span class="kw">in</span> text.split(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        text_formatted <span class="op">=</span> <span class="st">""</span>.join([<span class="ss">f'&lt;p id="par</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"&gt;</span><span class="sc">{</span>par<span class="sc">}</span><span class="ss">&lt;/p&gt;'</span> <span class="cf">for</span> i, par <span class="kw">in</span> <span class="bu">enumerate</span>(text_array)])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">'text'</span>: text,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"title"</span>: novel_title,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"image"</span>: novel_image,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"formatted"</span>: text_formatted,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"array"</span>: text_array</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="défis-et-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="défis-et-solutions">Défis et Solutions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Défi</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fiabilité du Web Scraping</strong></td>
+<td>Implémentation de gestion d’erreurs robuste et mécanismes de fallback</td>
+</tr>
+<tr class="even">
+<td><strong>Performance TTS</strong></td>
+<td>Optimisation du traitement de texte pour une meilleure synthèse vocale</td>
+</tr>
+<tr class="odd">
+<td><strong>Variété de Contenu</strong></td>
+<td>Développement d’une logique d’analyse flexible pour gérer différents formats de romans</td>
+</tr>
+<tr class="even">
+<td><strong>Limitations Cross-Origin</strong></td>
+<td>Configuration appropriée de la gestion CORS sur le backend</td>
+</tr>
+<tr class="odd">
+<td><strong>Suivi de Position de Lecture</strong></td>
+<td>Création d’une synchronisation personnalisée entre texte et voix</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="améliorations-futures" class="level2">
+<h2 class="anchored" data-anchor-id="améliorations-futures">Améliorations Futures</h2>
+<ul>
+<li><strong>Comptes Utilisateur</strong> : Sauvegarder la progression de lecture et les préférences</li>
+<li><strong>Support de Voix Personnalisées</strong> : Permettre aux utilisateurs de sélectionner différentes voix TTS</li>
+<li><strong>Support Hors Ligne</strong> : Capacités Progressive Web App pour la lecture hors ligne</li>
+<li><strong>Recherche Avancée</strong> : Filtrer les romans par genre, auteur et note</li>
+<li><strong>Applications Mobiles</strong> : Versions mobiles natives pour iOS et Android</li>
+<li><strong>Support Multi-langues</strong> : Élargir au-delà du contenu anglais</li>
+</ul>
+<hr>
+</section>
+<section id="leçons-apprises" class="level2">
+<h2 class="anchored" data-anchor-id="leçons-apprises">Leçons Apprises</h2>
+<p>Le développement de NovAI a fourni des insights précieux sur :</p>
+<ul>
+<li><strong>Intégration Full-Stack</strong> : Équilibrer les responsabilités frontend et backend</li>
+<li><strong>API Web Speech</strong> : Travailler avec la synthèse vocale basée sur le navigateur</li>
+<li><strong>Traitement Asynchrone</strong> : Gérer les opérations concurrentes en Python</li>
+<li><strong>Design d’Expérience Utilisateur</strong> : Créer une interface intuitive pour le contenu audio</li>
+<li><strong>Traitement de Contenu</strong> : Transformer le contenu web en formats accessibles</li>
+</ul>
+<hr>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<ul>
+<li><a href="https://github.com/Overowser/novai-frontend">Dépôt GitHub – Frontend</a></li>
+<li><a href="https://github.com/Overowser/novai-backend">Dépôt GitHub – Backend</a></li>
+</ul>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script src="../language-toggle.js"></script>
+
+
+
+
+</body></html>

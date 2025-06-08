@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Novai QA: Building a Spoiler-Free Novel Question Answering System – Mohamed El Ghali BENABOU</title>
+<title>Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers – Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Mohamed El Ghali BENABOU</span>
+    <span class="navbar-title">Portfolio</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -126,15 +126,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Accueil</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../projects.html"> 
-<span class="menu-text">Projects</span></a>
+<span class="menu-text">Projets</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">À Propos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../#"> 
+<span class="menu-text">English</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -144,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -152,60 +158,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a>
+  <li><a href="#aperçu-du-projet" id="toc-aperçu-du-projet" class="nav-link active" data-scroll-target="#aperçu-du-projet">Aperçu du projet</a>
   <ul class="collapse">
-  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The Challenge</a></li>
-  <li><a href="#my-solution" id="toc-my-solution" class="nav-link" data-scroll-target="#my-solution">My Solution</a></li>
+  <li><a href="#le-défi" id="toc-le-défi" class="nav-link" data-scroll-target="#le-défi">Le défi</a></li>
+  <li><a href="#ma-solution" id="toc-ma-solution" class="nav-link" data-scroll-target="#ma-solution">Ma solution</a></li>
   </ul></li>
-  <li><a href="#technical-architecture" id="toc-technical-architecture" class="nav-link" data-scroll-target="#technical-architecture">Technical Architecture</a>
+  <li><a href="#architecture-technique" id="toc-architecture-technique" class="nav-link" data-scroll-target="#architecture-technique">Architecture technique</a>
   <ul class="collapse">
-  <li><a href="#system-design-philosophy" id="toc-system-design-philosophy" class="nav-link" data-scroll-target="#system-design-philosophy">System Design Philosophy</a></li>
-  <li><a href="#core-components-deep-dive" id="toc-core-components-deep-dive" class="nav-link" data-scroll-target="#core-components-deep-dive">Core Components Deep Dive</a></li>
+  <li><a href="#philosophie-de-conception-du-système" id="toc-philosophie-de-conception-du-système" class="nav-link" data-scroll-target="#philosophie-de-conception-du-système">Philosophie de conception du système</a></li>
+  <li><a href="#plongée-profonde-dans-les-composants-principaux" id="toc-plongée-profonde-dans-les-composants-principaux" class="nav-link" data-scroll-target="#plongée-profonde-dans-les-composants-principaux">Plongée profonde dans les composants principaux</a></li>
   </ul></li>
-  <li><a href="#implementation-challenges-solutions" id="toc-implementation-challenges-solutions" class="nav-link" data-scroll-target="#implementation-challenges-solutions">Implementation Challenges &amp; Solutions</a>
+  <li><a href="#défis-dimplémentation-et-solutions" id="toc-défis-dimplémentation-et-solutions" class="nav-link" data-scroll-target="#défis-dimplémentation-et-solutions">Défis d’implémentation et solutions</a>
   <ul class="collapse">
-  <li><a href="#challenge-1-handling-very-long-novels" id="toc-challenge-1-handling-very-long-novels" class="nav-link" data-scroll-target="#challenge-1-handling-very-long-novels">Challenge 1: Handling Very Long Novels</a></li>
-  <li><a href="#challenge-2-context-preservation-across-chunks" id="toc-challenge-2-context-preservation-across-chunks" class="nav-link" data-scroll-target="#challenge-2-context-preservation-across-chunks">Challenge 2: Context Preservation Across Chunks</a></li>
-  <li><a href="#challenge-3-character-name-variations" id="toc-challenge-3-character-name-variations" class="nav-link" data-scroll-target="#challenge-3-character-name-variations">Challenge 3: Character Name Variations</a></li>
-  <li><a href="#challenge-4-spoiler-boundary-precision" id="toc-challenge-4-spoiler-boundary-precision" class="nav-link" data-scroll-target="#challenge-4-spoiler-boundary-precision">Challenge 4: Spoiler Boundary Precision</a></li>
+  <li><a href="#défi-1-gérer-les-romans-très-longs" id="toc-défi-1-gérer-les-romans-très-longs" class="nav-link" data-scroll-target="#défi-1-gérer-les-romans-très-longs">Défi 1 : Gérer les romans très longs</a></li>
+  <li><a href="#défi-2-préservation-du-contexte-entre-les-chunks" id="toc-défi-2-préservation-du-contexte-entre-les-chunks" class="nav-link" data-scroll-target="#défi-2-préservation-du-contexte-entre-les-chunks">Défi 2 : Préservation du contexte entre les chunks</a></li>
+  <li><a href="#défi-3-variations-des-noms-de-personnages" id="toc-défi-3-variations-des-noms-de-personnages" class="nav-link" data-scroll-target="#défi-3-variations-des-noms-de-personnages">Défi 3 : Variations des noms de personnages</a></li>
+  <li><a href="#défi-4-précision-des-limites-de-spoilers" id="toc-défi-4-précision-des-limites-de-spoilers" class="nav-link" data-scroll-target="#défi-4-précision-des-limites-de-spoilers">Défi 4 : Précision des limites de spoilers</a></li>
   </ul></li>
-  <li><a href="#performance-analysis" id="toc-performance-analysis" class="nav-link" data-scroll-target="#performance-analysis">Performance Analysis</a>
+  <li><a href="#analyse-de-performance" id="toc-analyse-de-performance" class="nav-link" data-scroll-target="#analyse-de-performance">Analyse de performance</a>
   <ul class="collapse">
-  <li><a href="#metrics-benchmarks" id="toc-metrics-benchmarks" class="nav-link" data-scroll-target="#metrics-benchmarks">Metrics &amp; Benchmarks</a></li>
-  <li><a href="#scalability-considerations" id="toc-scalability-considerations" class="nav-link" data-scroll-target="#scalability-considerations">Scalability Considerations</a></li>
+  <li><a href="#métriques-et-benchmarks" id="toc-métriques-et-benchmarks" class="nav-link" data-scroll-target="#métriques-et-benchmarks">Métriques et benchmarks</a></li>
+  <li><a href="#considérations-de-scalabilité" id="toc-considérations-de-scalabilité" class="nav-link" data-scroll-target="#considérations-de-scalabilité">Considérations de scalabilité</a></li>
   </ul></li>
-  <li><a href="#user-experience-design" id="toc-user-experience-design" class="nav-link" data-scroll-target="#user-experience-design">User Experience Design</a>
+  <li><a href="#conception-de-lexpérience-utilisateur" id="toc-conception-de-lexpérience-utilisateur" class="nav-link" data-scroll-target="#conception-de-lexpérience-utilisateur">Conception de l’expérience utilisateur</a>
   <ul class="collapse">
-  <li><a href="#interface-philosophy" id="toc-interface-philosophy" class="nav-link" data-scroll-target="#interface-philosophy">Interface Philosophy</a></li>
-  <li><a href="#interaction-patterns" id="toc-interaction-patterns" class="nav-link" data-scroll-target="#interaction-patterns">Interaction Patterns</a></li>
+  <li><a href="#philosophie-dinterface" id="toc-philosophie-dinterface" class="nav-link" data-scroll-target="#philosophie-dinterface">Philosophie d’interface</a></li>
+  <li><a href="#patterns-dinteraction" id="toc-patterns-dinteraction" class="nav-link" data-scroll-target="#patterns-dinteraction">Patterns d’interaction</a></li>
   </ul></li>
-  <li><a href="#technical-stack-dependencies" id="toc-technical-stack-dependencies" class="nav-link" data-scroll-target="#technical-stack-dependencies">Technical Stack &amp; Dependencies</a>
+  <li><a href="#stack-technique-et-dépendances" id="toc-stack-technique-et-dépendances" class="nav-link" data-scroll-target="#stack-technique-et-dépendances">Stack technique et dépendances</a>
   <ul class="collapse">
-  <li><a href="#core-technologies" id="toc-core-technologies" class="nav-link" data-scroll-target="#core-technologies">Core Technologies</a></li>
-  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link" data-scroll-target="#hardware-requirements">Hardware Requirements</a></li>
+  <li><a href="#technologies-principales" id="toc-technologies-principales" class="nav-link" data-scroll-target="#technologies-principales">Technologies principales</a></li>
+  <li><a href="#exigences-matérielles" id="toc-exigences-matérielles" class="nav-link" data-scroll-target="#exigences-matérielles">Exigences matérielles</a></li>
   </ul></li>
-  <li><a href="#development-retrospective" id="toc-development-retrospective" class="nav-link" data-scroll-target="#development-retrospective">Development Retrospective</a></li>
-  <li><a href="#lessons-learned-future-directions" id="toc-lessons-learned-future-directions" class="nav-link" data-scroll-target="#lessons-learned-future-directions">Lessons Learned &amp; Future Directions</a>
+  <li><a href="#rétrospective-de-développement" id="toc-rétrospective-de-développement" class="nav-link" data-scroll-target="#rétrospective-de-développement">Rétrospective de développement</a></li>
+  <li><a href="#leçons-apprises-et-directions-futures" id="toc-leçons-apprises-et-directions-futures" class="nav-link" data-scroll-target="#leçons-apprises-et-directions-futures">Leçons apprises et directions futures</a>
   <ul class="collapse">
-  <li><a href="#key-insights" id="toc-key-insights" class="nav-link" data-scroll-target="#key-insights">Key Insights</a></li>
-  <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">Future Enhancements</a></li>
+  <li><a href="#insights-clés" id="toc-insights-clés" class="nav-link" data-scroll-target="#insights-clés">Insights clés</a></li>
+  <li><a href="#améliorations-futures" id="toc-améliorations-futures" class="nav-link" data-scroll-target="#améliorations-futures">Améliorations futures</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Novai QA: Building a Spoiler-Free Novel Question Answering System</h1>
-<p class="subtitle lead">A RAG-based approach to long-form literature analysis</p>
+<h1 class="title">Novai QA : Construction d’un système de questions-réponses sur romans sans spoilers</h1>
+<p class="subtitle lead">Une approche basée sur RAG pour l’analyse de littérature longue</p>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -217,93 +223,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="project-overview" class="level2">
-<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p><strong>Novai QA</strong> represents a novel approach to handling one of the most challenging problems in literature discussion: spoiler management. This Retrieval-Augmented Generation (RAG) system enables readers to ask questions about web novels while maintaining strict spoiler-free boundaries based on their current reading progress.</p>
-<section id="the-challenge" class="level3">
-<h3 class="anchored" data-anchor-id="the-challenge">The Challenge</h3>
-<p>Long-form web novels, particularly those from platforms like novelfull.com, often span thousands of chapters with complex character relationships and intricate plot developments. Readers frequently want to:</p>
+<section id="aperçu-du-projet" class="level2">
+<h2 class="anchored" data-anchor-id="aperçu-du-projet">Aperçu du projet</h2>
+<p><strong>Novai QA</strong> représente une approche novatrice pour gérer l’un des problèmes les plus difficiles dans la discussion littéraire : la gestion des spoilers. Ce système de génération augmentée par récupération (RAG) permet aux lecteurs de poser des questions sur des romans web tout en maintenant des limites strictes sans spoilers basées sur leur progression de lecture actuelle.</p>
+<section id="le-défi" class="level3">
+<h3 class="anchored" data-anchor-id="le-défi">Le défi</h3>
+<p>Les romans web de longue durée, particulièrement ceux des plateformes comme novelfull.com, s’étendent souvent sur des milliers de chapitres avec des relations de personnages complexes et des développements d’intrigue complexes. Les lecteurs veulent fréquemment :</p>
 <ul>
-<li>Clarify character relationships without spoiling future developments</li>
-<li>Understand complex world-building elements</li>
-<li>Get refreshers on past events without re-reading entire sections</li>
-<li>Discuss plot points with confidence in spoiler safety</li>
+<li>Clarifier les relations entre personnages sans gâcher les développements futurs</li>
+<li>Comprendre des éléments complexes de construction du monde</li>
+<li>Obtenir des rappels sur les événements passés sans relire des sections entières</li>
+<li>Discuter des points d’intrigue avec confiance en matière de sécurité des spoilers</li>
 </ul>
-<p>Traditional approaches fail because they either: 1. Provide no spoiler protection 2. Require manual content curation 3. Cannot handle the scale of very long novels 4. Lack the contextual understanding needed for nuanced questions</p>
+<p>Les approches traditionnelles échouent parce qu’elles soit : 1. Ne fournissent aucune protection contre les spoilers 2. Nécessitent une curation manuelle du contenu 3. Ne peuvent pas gérer l’échelle de très longs romans 4. Manquent de compréhension contextuelle nécessaire pour des questions nuancées</p>
 </section>
-<section id="my-solution" class="level3">
-<h3 class="anchored" data-anchor-id="my-solution">My Solution</h3>
-<p>I developed a sophisticated RAG pipeline that combines:</p>
+<section id="ma-solution" class="level3">
+<h3 class="anchored" data-anchor-id="ma-solution">Ma solution</h3>
+<p>J’ai développé un pipeline RAG sophistiqué qui combine :</p>
 <ul>
-<li><strong>Intelligent Web Scraping</strong> for automated content acquisition</li>
-<li><strong>Hybrid Retrieval Systems</strong> mixing semantic and keyword-based search</li>
-<li><strong>Chapter-Based Spoiler Filtering</strong> for user progress awareness</li>
-<li><strong>Local LLM Integration</strong> for privacy and control</li>
-<li><strong>Context-Aware Chunking</strong> for optimal information retrieval</li>
+<li><strong>Web scraping intelligent</strong> pour l’acquisition automatisée de contenu</li>
+<li><strong>Systèmes de récupération hybrides</strong> mélangeant recherche sémantique et par mots-clés</li>
+<li><strong>Filtrage de spoilers basé sur les chapitres</strong> pour la conscience de progression de l’utilisateur</li>
+<li><strong>Intégration LLM locale</strong> pour la confidentialité et le contrôle</li>
+<li><strong>Chunking conscient du contexte</strong> pour une récupération d’information optimale</li>
 </ul>
 </section>
 </section>
-<section id="technical-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
-<section id="system-design-philosophy" class="level3">
-<h3 class="anchored" data-anchor-id="system-design-philosophy">System Design Philosophy</h3>
-<p>The architecture follows a modular pipeline design, where each component can be independently optimized and replaced:</p>
+<section id="architecture-technique" class="level2">
+<h2 class="anchored" data-anchor-id="architecture-technique">Architecture technique</h2>
+<section id="philosophie-de-conception-du-système" class="level3">
+<h3 class="anchored" data-anchor-id="philosophie-de-conception-du-système">Philosophie de conception du système</h3>
+<p>L’architecture suit une conception de pipeline modulaire, où chaque composant peut être optimisé et remplacé indépendamment :</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/NovaiQA-workflow.png" class="img-fluid figure-img"></p>
-<figcaption>Novai QA Workflow</figcaption>
+<figcaption>Workflow Novai QA</figcaption>
 </figure>
 </div>
 </section>
-<section id="core-components-deep-dive" class="level3">
-<h3 class="anchored" data-anchor-id="core-components-deep-dive">Core Components Deep Dive</h3>
-<section id="web-scraping-module-scraper.py" class="level4">
-<h4 class="anchored" data-anchor-id="web-scraping-module-scraper.py">1. Web Scraping Module (<code>scraper.py</code>)</h4>
-<p>The scraping system handles the complex task of extracting novel content from novelfull.com while managing:</p>
+<section id="plongée-profonde-dans-les-composants-principaux" class="level3">
+<h3 class="anchored" data-anchor-id="plongée-profonde-dans-les-composants-principaux">Plongée profonde dans les composants principaux</h3>
+<section id="module-de-web-scraping-scraper.py" class="level4">
+<h4 class="anchored" data-anchor-id="module-de-web-scraping-scraper.py">1. Module de web scraping (<code>scraper.py</code>)</h4>
+<p>Le système de scraping gère la tâche complexe d’extraire le contenu de romans depuis novelfull.com tout en gérant :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> refresh_database():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Interactive novel discovery and batch content extraction</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Découverte interactive de romans et extraction de contenu par lots</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># User-guided novel selection</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sélection de roman guidée par l'utilisateur</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    keyword <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please enter a keyword to search for novels: "</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cloudflare-aware scraping with fake headers</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scraping conscient de Cloudflare avec des en-têtes factices</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> header.generate()</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    connector <span class="op">=</span> aiohttp.TCPConnector(limit<span class="op">=</span><span class="dv">20</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Concurrent chapter extraction</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extraction de chapitres concurrente</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    tasks <span class="op">=</span> [get_page_content(session, url) <span class="cf">for</span> url <span class="kw">in</span> chapter_urls]</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    chapter_contents <span class="op">=</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>tasks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Key Features:</strong><br>
-- <strong>Cloudflare Protection Handling</strong>: Dynamic header generation and connection pooling<br>
-- <strong>Concurrent Processing</strong>: Async operations for efficient batch downloads<br>
-- <strong>Content Validation</strong>: Automatic detection and re-processing of failed downloads<br>
-- <strong>Database Integration</strong>: Direct insertion with conflict resolution</p>
+<p><strong>Fonctionnalités clés :</strong><br>
+- <strong>Gestion de la protection Cloudflare</strong> : Génération d’en-têtes dynamiques et pooling de connexions<br>
+- <strong>Traitement concurrent</strong> : Opérations async pour des téléchargements par lots efficaces<br>
+- <strong>Validation de contenu</strong> : Détection automatique et retraitement des téléchargements échoués<br>
+- <strong>Intégration base de données</strong> : Insertion directe avec résolution de conflits</p>
 </section>
-<section id="intelligent-chunking-system-chunker.py" class="level4">
-<h4 class="anchored" data-anchor-id="intelligent-chunking-system-chunker.py">2. Intelligent Chunking System (<code>chunker.py</code>)</h4>
-<p>The chunking algorithm represents one of the most sophisticated aspects of the system:</p>
+<section id="système-de-chunking-intelligent-chunker.py" class="level4">
+<h4 class="anchored" data-anchor-id="système-de-chunking-intelligent-chunker.py">2. Système de chunking intelligent (<code>chunker.py</code>)</h4>
+<p>L’algorithme de chunking représente l’un des aspects les plus sophistiqués du système :</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> chunk_text(text, max_chunk_size<span class="op">=</span><span class="dv">512</span>, overlap<span class="op">=</span><span class="dv">200</span>, tokenizer<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Adaptive chunking with context preservation</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Chunking adaptatif avec préservation du contexte</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    paragraphs <span class="op">=</span> segment_text(text, max_chunk_size, overlap, tokenizer)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sophisticated overlap management</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Gestion sophistiquée du chevauchement</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> current_chunk_size <span class="op">&lt;=</span> size <span class="op">+</span> overlap:</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> current_chunk_size <span class="op">&lt;=</span> max_chunk_size <span class="op">-</span> paragraphs[j][<span class="dv">1</span>]:</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            current_chunk.insert(<span class="dv">0</span>, paragraphs[j][<span class="dv">0</span>])</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            current_chunk_size <span class="op">+=</span> paragraphs[j][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Algorithm Design:</strong><br>
-- <strong>Multi-Level Fallback</strong>: Paragraph → Sentence → Sub-sentence segmentation<br>
-- <strong>Context-Aware Overlap</strong>: Intelligent boundary detection to preserve meaning<br>
-- <strong>Token-Precise Sizing</strong>: Uses actual model tokenizer for accurate size calculation<br>
-- <strong>Adaptive Processing</strong>: Handles varying content structures automatically</p>
+<p><strong>Conception de l’algorithme :</strong><br>
+- <strong>Fallback multi-niveau</strong> : Segmentation Paragraphe → Phrase → Sous-phrase<br>
+- <strong>Chevauchement conscient du contexte</strong> : Détection intelligente des limites pour préserver le sens<br>
+- <strong>Dimensionnement précis des tokens</strong> : Utilise le tokenizer du modèle réel pour un calcul de taille précis<br>
+- <strong>Traitement adaptatif</strong> : Gère automatiquement les structures de contenu variées</p>
 </section>
-<section id="hybrid-retrieval-system-retriever.py" class="level4">
-<h4 class="anchored" data-anchor-id="hybrid-retrieval-system-retriever.py">3. Hybrid Retrieval System (<code>retriever.py</code>)</h4>
-<p>The retrieval system combines two complementary approaches:</p>
-<p><strong>Semantic Search (ChromaDB):</strong></p>
+<section id="système-de-récupération-hybride-retriever.py" class="level4">
+<h4 class="anchored" data-anchor-id="système-de-récupération-hybride-retriever.py">3. Système de récupération hybride (<code>retriever.py</code>)</h4>
+<p>Le système de récupération combine deux approches complémentaires :</p>
+<p><strong>Recherche sémantique (ChromaDB) :</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retrieve_context_chroma(query, novel_name, model, spoiler_threshold<span class="op">=</span><span class="va">None</span>, k<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    query_prompt <span class="op">=</span> <span class="st">"Represent this sentence for searching relevant passages: "</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    query_vector <span class="op">=</span> model.encode(query_prompt <span class="op">+</span> query)</span>
@@ -314,235 +320,235 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            query_embeddings<span class="op">=</span>[query_vector.tolist()],</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            where<span class="op">=</span>{<span class="st">"chapter_id"</span>: {<span class="st">"$lte"</span>: spoiler_threshold}}</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Keyword Search (BM25):</strong></p>
+<p><strong>Recherche par mots-clés (BM25) :</strong></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retrieve_context_bm25(query, novel_name, spoiler_threshold<span class="op">=</span><span class="va">None</span>, k<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Advanced preprocessing pipeline</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    query_tokens <span class="op">=</span> preprocess(query)  <span class="co"># Lemmatization + POS tagging</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pipeline de prétraitement avancé</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    query_tokens <span class="op">=</span> preprocess(query)  <span class="co"># Lemmatisation + étiquetage POS</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    bm25 <span class="op">=</span> BM25Okapi(tokenized_docs)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> bm25.get_scores(query_tokens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Fusion Strategy:</strong> The system combines results from both methods, leveraging the strengths of each:<br>
-- Semantic search excels at conceptual queries and synonyms<br>
-- BM25 captures exact name matches and specific terminology<br>
-- Combined results provide comprehensive coverage</p>
+<p><strong>Stratégie de fusion :</strong> Le système combine les résultats des deux méthodes, exploitant les forces de chacune :<br>
+- La recherche sémantique excelle dans les requêtes conceptuelles et les synonymes<br>
+- BM25 capture les correspondances exactes de noms et la terminologie spécifique<br>
+- Les résultats combinés fournissent une couverture complète</p>
 </section>
-<section id="spoiler-aware-filtering" class="level4">
-<h4 class="anchored" data-anchor-id="spoiler-aware-filtering">4. Spoiler-Aware Filtering</h4>
-<p>The spoiler protection mechanism operates at the database query level for efficiency:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chapter-based filtering in PostgreSQL</span></span>
+<section id="filtrage-conscient-des-spoilers" class="level4">
+<h4 class="anchored" data-anchor-id="filtrage-conscient-des-spoilers">4. Filtrage conscient des spoilers</h4>
+<p>Le mécanisme de protection contre les spoilers fonctionne au niveau de la requête de base de données pour l’efficacité :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrage basé sur les chapitres dans PostgreSQL</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT chunks.id, chunks.chunk_content </span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM chunks </span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN chapters ON chunks.chapter_id = chapters.id </span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE chapters.novel_id = </span><span class="sc">%s</span><span class="st"> AND chapters.chapter_number &lt;= </span><span class="sc">%s</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>, (novel_id, spoiler_threshold))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This approach ensures:<br>
-- <strong>Database-Level Efficiency</strong>: Filtering happens during retrieval, not post-processing<br>
-- <strong>Precise Control</strong>: Chapter-granular spoiler boundaries<br>
-- <strong>User Agency</strong>: Optional spoiler protection based on user preference</p>
+<p>Cette approche assure :<br>
+- <strong>Efficacité au niveau de la base de données</strong> : Le filtrage se produit pendant la récupération, pas en post-traitement<br>
+- <strong>Contrôle précis</strong> : Limites de spoilers granulaires par chapitre<br>
+- <strong>Agence utilisateur</strong> : Protection optionnelle contre les spoilers basée sur la préférence utilisateur</p>
 </section>
-<section id="response-generation-generator.py" class="level4">
-<h4 class="anchored" data-anchor-id="response-generation-generator.py">5. Response Generation (<code>generator.py</code>)</h4>
-<p>The generation system uses carefully crafted prompts to ensure grounded responses:</p>
+<section id="génération-de-réponses-generator.py" class="level4">
+<h4 class="anchored" data-anchor-id="génération-de-réponses-generator.py">5. Génération de réponses (<code>generator.py</code>)</h4>
+<p>Le système de génération utilise des prompts soigneusement conçus pour assurer des réponses fondées :</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">"""You are a RAG system designed to answer questions about novels </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">using only the retrieved excerpts from the book. Your responses must be grounded </span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">in the supplied content, without guessing or adding external information."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Key Features:</strong><br>
-- <strong>Strict Grounding</strong>: Responses limited to retrieved content only<br>
-- <strong>Natural Language</strong>: No exposure of system mechanics to users<br>
-- <strong>Thinking Chain Handling</strong>: Special processing for reasoning-based models<br>
-- <strong>Graceful Uncertainty</strong>: Honest admission when information isn’t available</p>
+<p><strong>Fonctionnalités clés :</strong><br>
+- <strong>Fondation stricte</strong> : Réponses limitées au contenu récupéré seulement<br>
+- <strong>Langage naturel</strong> : Aucune exposition des mécaniques système aux utilisateurs<br>
+- <strong>Gestion des chaînes de pensée</strong> : Traitement spécial pour les modèles basés sur le raisonnement<br>
+- <strong>Incertitude gracieuse</strong> : Admission honnête quand l’information n’est pas disponible</p>
 </section>
 </section>
 </section>
-<section id="implementation-challenges-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-challenges-solutions">Implementation Challenges &amp; Solutions</h2>
-<section id="challenge-1-handling-very-long-novels" class="level3">
-<h3 class="anchored" data-anchor-id="challenge-1-handling-very-long-novels">Challenge 1: Handling Very Long Novels</h3>
-<p><strong>Problem</strong>: Novels with 1000+ chapters generate tens of thousands of chunks, making retrieval computationally expensive.</p>
-<p><strong>Solution</strong>:<br>
-- <strong>Hierarchical Filtering</strong>: Database-level novel and chapter filtering before semantic search<br>
-- <strong>Batch Processing</strong>: Optimized embedding generation with CUDA acceleration<br>
-- <strong>Connection Pooling</strong>: Efficient database resource management</p>
+<section id="défis-dimplémentation-et-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="défis-dimplémentation-et-solutions">Défis d’implémentation et solutions</h2>
+<section id="défi-1-gérer-les-romans-très-longs" class="level3">
+<h3 class="anchored" data-anchor-id="défi-1-gérer-les-romans-très-longs">Défi 1 : Gérer les romans très longs</h3>
+<p><strong>Problème</strong> : Les romans avec plus de 1000 chapitres génèrent des dizaines de milliers de chunks, rendant la récupération coûteuse en calcul.</p>
+<p><strong>Solution</strong> :<br>
+- <strong>Filtrage hiérarchique</strong> : Filtrage au niveau base de données des romans et chapitres avant la recherche sémantique<br>
+- <strong>Traitement par lots</strong> : Génération d’embeddings optimisée avec accélération CUDA<br>
+- <strong>Pooling de connexions</strong> : Gestion efficace des ressources de base de données</p>
 </section>
-<section id="challenge-2-context-preservation-across-chunks" class="level3">
-<h3 class="anchored" data-anchor-id="challenge-2-context-preservation-across-chunks">Challenge 2: Context Preservation Across Chunks</h3>
-<p><strong>Problem</strong>: Critical information often spans paragraph boundaries, leading to fragmented context.</p>
-<p><strong>Solution</strong>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intelligent overlap with context awareness</span></span>
+<section id="défi-2-préservation-du-contexte-entre-les-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="défi-2-préservation-du-contexte-entre-les-chunks">Défi 2 : Préservation du contexte entre les chunks</h3>
+<p><strong>Problème</strong> : L’information critique s’étend souvent au-delà des limites de paragraphes, conduisant à un contexte fragmenté.</p>
+<p><strong>Solution</strong> :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chevauchement intelligent avec conscience du contexte</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> current_chunk_size <span class="op">&lt;=</span> size <span class="op">+</span> overlap:</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> current_chunk_size <span class="op">&lt;=</span> max_chunk_size <span class="op">-</span> paragraphs[j][<span class="dv">1</span>]:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        current_chunk.insert(<span class="dv">0</span>, paragraphs[j][<span class="dv">0</span>])  <span class="co"># Add previous context</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This ensures each chunk contains sufficient context for standalone comprehension.</p>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        current_chunk.insert(<span class="dv">0</span>, paragraphs[j][<span class="dv">0</span>])  <span class="co"># Ajouter le contexte précédent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Cela assure que chaque chunk contient suffisamment de contexte pour une compréhension autonome.</p>
 </section>
-<section id="challenge-3-character-name-variations" class="level3">
-<h3 class="anchored" data-anchor-id="challenge-3-character-name-variations">Challenge 3: Character Name Variations</h3>
-<p><strong>Problem</strong>: Web novels often use multiple names/titles for characters, making retrieval inconsistent.</p>
-<p><strong>Solution</strong>: Hybrid retrieval system where:<br>
-- BM25 catches exact name matches and variations<br>
-- Semantic search captures conceptual references<br>
-- Combined results ensure comprehensive character coverage</p>
+<section id="défi-3-variations-des-noms-de-personnages" class="level3">
+<h3 class="anchored" data-anchor-id="défi-3-variations-des-noms-de-personnages">Défi 3 : Variations des noms de personnages</h3>
+<p><strong>Problème</strong> : Les romans web utilisent souvent plusieurs noms/titres pour les personnages, rendant la récupération incohérente.</p>
+<p><strong>Solution</strong> : Système de récupération hybride où :<br>
+- BM25 capture les correspondances exactes de noms et variations<br>
+- La recherche sémantique capture les références conceptuelles<br>
+- Les résultats combinés assurent une couverture complète des personnages</p>
 </section>
-<section id="challenge-4-spoiler-boundary-precision" class="level3">
-<h3 class="anchored" data-anchor-id="challenge-4-spoiler-boundary-precision">Challenge 4: Spoiler Boundary Precision</h3>
-<p><strong>Problem</strong>: Determining exact spoiler boundaries while maintaining retrieval efficiency.</p>
-<p><strong>Solution</strong>: Chapter-level granularity with database-level filtering:<br>
-- <strong>User Control</strong>: Explicit chapter specification<br>
-- <strong>Conservative Approach</strong>: When uncertain, prioritize spoiler safety<br>
-- <strong>Efficient Implementation</strong>: PostgreSQL query optimization</p>
-</section>
-</section>
-<section id="performance-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="performance-analysis">Performance Analysis</h2>
-<section id="metrics-benchmarks" class="level3">
-<h3 class="anchored" data-anchor-id="metrics-benchmarks">Metrics &amp; Benchmarks</h3>
-<p><strong>Chunking Performance:</strong><br>
-- Average novel (500 chapters): ~15-20 minutes processing time<br>
-- Chunk generation: ~5,000-8,000 chunks per novel<br>
-- Memory usage: ~2-4GB during processing peak</p>
-<p><strong>Retrieval Speed:</strong><br>
-- Query processing: &lt;2 seconds average<br>
-- Hybrid search: 10 chunks from each method (20 total)<br>
-- Database queries: &lt;100ms with proper indexing</p>
-<p><strong>Response Quality:</strong><br>
-- Grounded accuracy: High adherence to source material<br>
-- Contextual coherence: Strong performance due to overlap strategy<br>
-- Spoiler safety: 100% when threshold properly set</p>
-</section>
-<section id="scalability-considerations" class="level3">
-<h3 class="anchored" data-anchor-id="scalability-considerations">Scalability Considerations</h3>
-<p><strong>Current Limits:</strong> - Single novel focus (by design)<br>
-- GPU memory requirements for embeddings<br>
-- PostgreSQL storage scaling with novel count</p>
-<p><strong>Optimization Opportunities:</strong><br>
-- Caching frequently accessed chunks<br>
-- Pre-computed embeddings and for common queries<br>
-- Preprocessed text (lemmatized + POS tagged) for common queries<br>
-- Distributed processing for multiple novels</p>
+<section id="défi-4-précision-des-limites-de-spoilers" class="level3">
+<h3 class="anchored" data-anchor-id="défi-4-précision-des-limites-de-spoilers">Défi 4 : Précision des limites de spoilers</h3>
+<p><strong>Problème</strong> : Déterminer les limites exactes de spoilers tout en maintenant l’efficacité de récupération.</p>
+<p><strong>Solution</strong> : Granularité au niveau chapitre avec filtrage au niveau base de données :<br>
+- <strong>Contrôle utilisateur</strong> : Spécification explicite de chapitre<br>
+- <strong>Approche conservatrice</strong> : En cas d’incertitude, prioriser la sécurité des spoilers<br>
+- <strong>Implémentation efficace</strong> : Optimisation des requêtes PostgreSQL</p>
 </section>
 </section>
-<section id="user-experience-design" class="level2">
-<h2 class="anchored" data-anchor-id="user-experience-design">User Experience Design</h2>
-<section id="interface-philosophy" class="level3">
-<h3 class="anchored" data-anchor-id="interface-philosophy">Interface Philosophy</h3>
-<p>The Gradio interface prioritizes simplicity while providing essential controls:</p>
+<section id="analyse-de-performance" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-de-performance">Analyse de performance</h2>
+<section id="métriques-et-benchmarks" class="level3">
+<h3 class="anchored" data-anchor-id="métriques-et-benchmarks">Métriques et benchmarks</h3>
+<p><strong>Performance de chunking :</strong><br>
+- Roman moyen (500 chapitres) : ~15-20 minutes de temps de traitement<br>
+- Génération de chunks : ~5,000-8,000 chunks par roman<br>
+- Usage mémoire : ~2-4GB pendant le pic de traitement</p>
+<p><strong>Vitesse de récupération :</strong><br>
+- Traitement de requête : &lt;2 secondes en moyenne<br>
+- Recherche hybride : 10 chunks de chaque méthode (20 total)<br>
+- Requêtes base de données : &lt;100ms avec indexation appropriée</p>
+<p><strong>Qualité de réponse :</strong><br>
+- Précision fondée : Haute adhérence au matériel source<br>
+- Cohérence contextuelle : Performance forte due à la stratégie de chevauchement<br>
+- Sécurité spoilers : 100% quand le seuil est correctement défini</p>
+</section>
+<section id="considérations-de-scalabilité" class="level3">
+<h3 class="anchored" data-anchor-id="considérations-de-scalabilité">Considérations de scalabilité</h3>
+<p><strong>Limites actuelles :</strong> - Focus sur un seul roman (par conception)<br>
+- Exigences mémoire GPU pour les embeddings<br>
+- Mise à l’échelle du stockage PostgreSQL avec le nombre de romans</p>
+<p><strong>Opportunités d’optimisation :</strong><br>
+- Cache des chunks fréquemment accédés<br>
+- Embeddings pré-calculés pour les requêtes communes<br>
+- Texte prétraité (lemmatisé + étiquetage POS) pour les requêtes communes<br>
+- Traitement distribué pour plusieurs romans</p>
+</section>
+</section>
+<section id="conception-de-lexpérience-utilisateur" class="level2">
+<h2 class="anchored" data-anchor-id="conception-de-lexpérience-utilisateur">Conception de l’expérience utilisateur</h2>
+<section id="philosophie-dinterface" class="level3">
+<h3 class="anchored" data-anchor-id="philosophie-dinterface">Philosophie d’interface</h3>
+<p>L’interface Gradio priorise la simplicité tout en fournissant les contrôles essentiels :</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(title<span class="op">=</span><span class="st">"Novel Assistant Chatbot"</span>, theme<span class="op">=</span>gr.themes.Soft()) <span class="im">as</span> demo:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    novel_name <span class="op">=</span> gr.Textbox(label<span class="op">=</span><span class="st">"Novel Name"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    spoiler_threshold <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Current Chapter (optional)"</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    chatbot <span class="op">=</span> gr.Chatbot(height<span class="op">=</span><span class="dv">500</span>, bubble_full_width<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="../images/novaiqa-interface.png" class="img-fluid" alt="Novai QA Interface"> <em>Figure: Novai QA interface upon launch, showcasing the minimalist design and spoiler control input.</em></p>
-<p><strong>Design Principles:</strong><br>
-- <strong>Minimal Cognitive Load</strong>: Essential controls only<br>
-- <strong>Clear Spoiler Control</strong>: Obvious chapter input mechanism<br>
-- <strong>Conversational Flow</strong>: Natural chat interface<br>
-- <strong>Immediate Feedback</strong>: Real-time response generation</p>
+<p><img src="../images/novaiqa-interface.png" class="img-fluid" alt="Interface Novai QA"> <em>Figure : Interface Novai QA au lancement, montrant la conception minimaliste et l’entrée de contrôle des spoilers.</em></p>
+<p><strong>Principes de conception :</strong><br>
+- <strong>Charge cognitive minimale</strong> : Contrôles essentiels uniquement<br>
+- <strong>Contrôle de spoilers clair</strong> : Mécanisme d’entrée de chapitre évident<br>
+- <strong>Flux conversationnel</strong> : Interface de chat naturelle<br>
+- <strong>Feedback immédiat</strong> : Génération de réponse en temps réel</p>
 </section>
-<section id="interaction-patterns" class="level3">
-<h3 class="anchored" data-anchor-id="interaction-patterns">Interaction Patterns</h3>
-<p><strong>Typical User Flow:</strong><br>
-1. <strong>Novel Selection</strong>: Enter novel name (exact match required)<br>
-2. <strong>Progress Setting</strong>: Specify current chapter (optional but recommended)<br>
-3. <strong>Natural Querying</strong>: Ask questions in conversational language<br>
-4. <strong>Iterative Exploration</strong>: Follow up with related questions</p>
-<p><strong>Example Interactions:</strong></p>
-<pre><code>User: "Who is the main character in Supreme Magus?"
-System: "Based on the story content, the main character is Lith..."
+<section id="patterns-dinteraction" class="level3">
+<h3 class="anchored" data-anchor-id="patterns-dinteraction">Patterns d’interaction</h3>
+<p><strong>Flux utilisateur typique :</strong><br>
+1. <strong>Sélection de roman</strong> : Entrer le nom du roman (correspondance exacte requise)<br>
+2. <strong>Réglage de progression</strong> : Spécifier le chapitre actuel (optionnel mais recommandé)<br>
+3. <strong>Requête naturelle</strong> : Poser des questions en langage conversationnel<br>
+4. <strong>Exploration itérative</strong> : Suivre avec des questions liées</p>
+<p><strong>Exemples d’interactions :</strong></p>
+<pre><code>Utilisateur : "Qui est le personnage principal dans Supreme Magus ?"
+Système : "Basé sur le contenu de l'histoire, le personnage principal est Lith..."
 
-User: "What are his abilities?"
-System: "Lith demonstrates several key abilities including..."</code></pre>
+Utilisateur : "Quelles sont ses capacités ?"
+Système : "Lith démontre plusieurs capacités clés incluant..."</code></pre>
 </section>
 </section>
-<section id="technical-stack-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="technical-stack-dependencies">Technical Stack &amp; Dependencies</h2>
-<section id="core-technologies" class="level3">
-<h3 class="anchored" data-anchor-id="core-technologies">Core Technologies</h3>
-<p><strong>Backend Framework:</strong><br>
-- <strong>Python 3.12+</strong>: Core development language<br>
-- <strong>PostgreSQL</strong>: Primary data storage<br>
-- <strong>ChromaDB</strong>: Vector similarity search<br>
-- <strong>Ollama</strong>: Local LLM serving</p>
-<p><strong>Machine Learning:</strong><br>
-- <strong>SentenceTransformers</strong>: Embedding generation<br>
-- <strong>NLTK</strong>: Text preprocessing pipeline<br>
-- <strong>rank-bm25</strong>: Keyword search implementation</p>
-<p><strong>Web Technologies:</strong><br>
-- <strong>Gradio</strong>: Interactive interface<br>
-- <strong>aiohttp</strong>: Async web scraping<br>
-- <strong>BeautifulSoup</strong>: HTML parsing</p>
+<section id="stack-technique-et-dépendances" class="level2">
+<h2 class="anchored" data-anchor-id="stack-technique-et-dépendances">Stack technique et dépendances</h2>
+<section id="technologies-principales" class="level3">
+<h3 class="anchored" data-anchor-id="technologies-principales">Technologies principales</h3>
+<p><strong>Framework backend :</strong><br>
+- <strong>Python 3.12+</strong> : Langage de développement principal<br>
+- <strong>PostgreSQL</strong> : Stockage de données primaire<br>
+- <strong>ChromaDB</strong> : Recherche de similarité vectorielle<br>
+- <strong>Ollama</strong> : Service LLM local</p>
+<p><strong>Machine Learning :</strong><br>
+- <strong>SentenceTransformers</strong> : Génération d’embeddings<br>
+- <strong>NLTK</strong> : Pipeline de prétraitement de texte<br>
+- <strong>rank-bm25</strong> : Implémentation de recherche par mots-clés</p>
+<p><strong>Technologies web :</strong><br>
+- <strong>Gradio</strong> : Interface interactive<br>
+- <strong>aiohttp</strong> : Web scraping asynchrone<br>
+- <strong>BeautifulSoup</strong> : Parsing HTML</p>
 </section>
-<section id="hardware-requirements" class="level3">
-<h3 class="anchored" data-anchor-id="hardware-requirements">Hardware Requirements</h3>
-<p><strong>Minimum Specifications:</strong><br>
-- 16GB RAM (for embedding models)<br>
-- CUDA-compatible GPU (recommended)<br>
-- 10GB+ storage (varies by novel count)<br>
-- Stable internet (for initial scraping)</p>
-<p><strong>Optimal Configuration:</strong><br>
+<section id="exigences-matérielles" class="level3">
+<h3 class="anchored" data-anchor-id="exigences-matérielles">Exigences matérielles</h3>
+<p><strong>Spécifications minimales :</strong><br>
+- 16GB RAM (pour les modèles d’embeddings)<br>
+- GPU compatible CUDA (recommandé)<br>
+- 10GB+ stockage (varie selon le nombre de romans)<br>
+- Internet stable (pour le scraping initial)</p>
+<p><strong>Configuration optimale :</strong><br>
 - 32GB+ RAM<br>
-- RTX 3080/4080 or equivalent<br>
-- SSD storage for database performance<br>
-- High-bandwidth internet connection</p>
+- RTX 3080/4080 ou équivalent<br>
+- Stockage SSD pour la performance de base de données<br>
+- Connexion internet haut débit</p>
 </section>
 </section>
-<section id="development-retrospective" class="level2">
-<h2 class="anchored" data-anchor-id="development-retrospective">Development Retrospective</h2>
+<section id="rétrospective-de-développement" class="level2">
+<h2 class="anchored" data-anchor-id="rétrospective-de-développement">Rétrospective de développement</h2>
 <ul>
-<li><strong>Chunking Complexity Underestimated</strong>: Initially assumed to be a straightforward task, implementing overlap-based chunking proved significantly more complex. Developed a custom solution after facing multiple edge cases in context preservation.<br>
+<li><strong>Complexité de chunking sous-estimée</strong> : Initialement assumé être une tâche simple, l’implémentation du chunking basé sur le chevauchement s’est révélée significativement plus complexe. Développement d’une solution personnalisée après avoir fait face à de multiples cas limites dans la préservation du contexte.<br>
 </li>
-<li><strong>Vector Store Exploration</strong>: Started with FAISS but abandoned it due to lack of native metadata filtering. Considered Milvus, but it was unavailable on Windows at the time of development.<br>
+<li><strong>Exploration de vector store</strong> : Commencé avec FAISS mais abandonné en raison du manque de filtrage natif des métadonnées. Considéré Milvus, mais il n’était pas disponible sur Windows au moment du développement.<br>
 </li>
-<li><strong>Hybrid Retrieval Realization</strong>: BM25 was introduced to supplement semantic search but yielded poor results without lemmatization. Effective lemmatization required POS tagging, which added processing overhead.<br>
+<li><strong>Réalisation de récupération hybride</strong> : BM25 a été introduit pour compléter la recherche sémantique mais a donné de mauvais résultats sans lemmatisation. Une lemmatisation efficace nécessitait l’étiquetage POS, ce qui ajoutait une surcharge de traitement.<br>
 </li>
-<li><strong>Hardware Impact on Embeddings</strong>: Encoding ~1000 chapters with a GPU took ~40 minutes; estimated CPU time exceeded 8 hours. Highlighted the critical performance gap between CPU and CUDA-enabled hardware.<br>
+<li><strong>Impact matériel sur les embeddings</strong> : L’encodage de ~1000 chapitres avec un GPU a pris ~40 minutes ; le temps CPU estimé dépassait 8 heures. A souligné l’écart critique de performance entre CPU et matériel compatible CUDA.<br>
 </li>
-<li><strong>Database Migration</strong>: Transitioned from SQLite to PostgreSQL for robust filtering and relational querying. However, ChromaDB continued using SQLite3 locally as its backend.<br>
+<li><strong>Migration de base de données</strong> : Transition de SQLite vers PostgreSQL pour un filtrage robuste et des requêtes relationnelles. Cependant, ChromaDB a continué à utiliser SQLite3 localement comme backend.<br>
 </li>
-<li><strong>Operational Logging</strong>: Introduced application-level logging to monitor scraping, chunking, and retrieval processes more systematically.</li>
+<li><strong>Logging opérationnel</strong> : Introduction du logging au niveau application pour surveiller plus systématiquement les processus de scraping, chunking et récupération.</li>
 </ul>
 </section>
-<section id="lessons-learned-future-directions" class="level2">
-<h2 class="anchored" data-anchor-id="lessons-learned-future-directions">Lessons Learned &amp; Future Directions</h2>
-<section id="key-insights" class="level3">
-<h3 class="anchored" data-anchor-id="key-insights">Key Insights</h3>
+<section id="leçons-apprises-et-directions-futures" class="level2">
+<h2 class="anchored" data-anchor-id="leçons-apprises-et-directions-futures">Leçons apprises et directions futures</h2>
+<section id="insights-clés" class="level3">
+<h3 class="anchored" data-anchor-id="insights-clés">Insights clés</h3>
 <ol type="1">
-<li><strong>Chunking Strategy Matters</strong>: The quality of text segmentation directly impacts retrieval quality</li>
-<li><strong>Hybrid Approaches Win</strong>: Combining semantic and keyword search provides superior coverage</li>
-<li><strong>User Agency is Critical</strong>: Spoiler control must be user-driven, not system-assumed</li>
-<li><strong>Local Processing Benefits</strong>: Privacy and control advantages outweigh cloud API convenience</li>
+<li><strong>La stratégie de chunking compte</strong> : La qualité de segmentation de texte impacte directement la qualité de récupération</li>
+<li><strong>Les approches hybrides gagnent</strong> : Combiner recherche sémantique et par mots-clés fournit une couverture supérieure</li>
+<li><strong>L’agence utilisateur est critique</strong> : Le contrôle des spoilers doit être piloté par l’utilisateur, pas assumé par le système</li>
+<li><strong>Les avantages du traitement local</strong> : Les avantages de confidentialité et contrôle surpassent la commodité des API cloud</li>
 </ol>
 </section>
-<section id="future-enhancements" class="level3">
-<h3 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h3>
-<p><strong>Technical Improvements:</strong><br>
-- <strong>Advanced Reranking</strong>: LLM-based relevance scoring for retrieved content<br>
-- <strong>Multi-Novel Support</strong>: Concurrent handling of multiple novel sources<br>
-- <strong>Multi-Turn Conversation</strong>: Context-aware processing for follow-up queries<br>
-- <strong>Conversation Memory</strong>: Persistent context across chat sessions<br>
-- <strong>Auto-Update System</strong>: Periodic content synchronization with novel databases</p>
-<p><strong>User Experience:</strong><br>
-- <strong>Progressive Web App</strong>: Mobile-optimized interface<br>
-- <strong>Reading Progress Integration</strong>: Automatic chapter tracking<br>
-- <strong>Social Features</strong>: Shared discussions with spoiler awareness<br>
-- <strong>Personalization</strong>: User preference learning and adaptation</p>
-<p><strong>Scalability &amp; Performance:</strong><br>
-- <strong>Caching Layer</strong>: Redis integration for frequent queries<br>
-- <strong>Distributed Processing</strong>: Multi-GPU embedding generation<br>
-- <strong>API Development</strong>: REST endpoints for third-party integrations<br>
-- <strong>Containerization</strong>: Docker deployment for easy scaling</p>
+<section id="améliorations-futures" class="level3">
+<h3 class="anchored" data-anchor-id="améliorations-futures">Améliorations futures</h3>
+<p><strong>Améliorations techniques :</strong><br>
+- <strong>Reranking avancé</strong> : Scoring de pertinence basé sur LLM pour le contenu récupéré<br>
+- <strong>Support multi-romans</strong> : Gestion concurrente de multiples sources de romans<br>
+- <strong>Conversation multi-tour</strong> : Traitement conscient du contexte pour les requêtes de suivi<br>
+- <strong>Mémoire de conversation</strong> : Contexte persistant à travers les sessions de chat<br>
+- <strong>Système de mise à jour automatique</strong> : Synchronisation périodique du contenu avec les bases de données de romans</p>
+<p><strong>Expérience utilisateur :</strong><br>
+- <strong>Progressive Web App</strong> : Interface optimisée mobile<br>
+- <strong>Intégration progression de lecture</strong> : Suivi automatique des chapitres<br>
+- <strong>Fonctionnalités sociales</strong> : Discussions partagées avec conscience des spoilers<br>
+- <strong>Personnalisation</strong> : Apprentissage et adaptation des préférences utilisateur</p>
+<p><strong>Scalabilité et performance :</strong><br>
+- <strong>Couche de cache</strong> : Intégration Redis pour les requêtes fréquentes<br>
+- <strong>Traitement distribué</strong> : Génération d’embeddings multi-GPU<br>
+- <strong>Développement API</strong> : Endpoints REST pour intégrations tierces<br>
+- <strong>Containerisation</strong> : Déploiement Docker pour mise à l’échelle facile</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The Novai QA project demonstrates the practical application of modern NLP techniques to solve real-world problems in digital literature consumption. By combining web scraping, advanced text processing, hybrid retrieval systems, and local LLM generation, the system provides a unique solution to the spoiler management challenge.</p>
-<p>The project showcases several key technical skills:<br>
-- <strong>Full-Stack Development</strong>: From database design to web interface<br>
-- <strong>NLP Pipeline Engineering</strong>: End-to-end text processing workflows<br>
-- <strong>RAG System Architecture</strong>: Modern information retrieval and generation<br>
-- <strong>Async Programming</strong>: Efficient concurrent processing<br>
-- <strong>Database Optimization</strong>: Query performance and data modeling</p>
-<p>Most importantly, it addresses a genuine user need with a thoughtful, technically sound approach that prioritizes user control and content safety.</p>
+<p>Le projet Novai QA démontre l’application pratique de techniques NLP modernes pour résoudre des problèmes du monde réel dans la consommation de littérature numérique. En combinant web scraping, traitement de texte avancé, systèmes de récupération hybrides et génération LLM locale, le système fournit une solution unique au défi de gestion des spoilers.</p>
+<p>Le projet présente plusieurs compétences techniques clés :<br>
+- <strong>Développement full-stack</strong> : De la conception de base de données à l’interface web<br>
+- <strong>Ingénierie de pipeline NLP</strong> : Workflows de traitement de texte bout en bout<br>
+- <strong>Architecture de système RAG</strong> : Récupération et génération d’information modernes<br>
+- <strong>Programmation asynchrone</strong> : Traitement concurrent efficace<br>
+- <strong>Optimisation de base de données</strong> : Performance de requêtes et modélisation de données</p>
+<p>Plus important encore, il répond à un besoin utilisateur genuine avec une approche réfléchie et techniquement solide qui priorise le contrôle utilisateur et la sécurité du contenu.</p>
 <hr>
-<p><em>This project is part of my portfolio demonstrating expertise in NLP, RAG systems, and full-stack development. The complete codebase and documentation are available on <a href="https://github.com/Overowser/Novai-QA">GitHub</a>.</em></p>
+<p><em>Ce projet fait partie de mon portfolio démontrant l’expertise en NLP, systèmes RAG et développement full-stack. Le code complet et la documentation sont disponibles sur <a href="https://github.com/Overowser/Novai-QA">GitHub</a>.</em></p>
 
 
 </section>
@@ -948,6 +954,7 @@ System: "Lith demonstrates several key abilities including..."</code></pre>
   });
   </script>
 </div> <!-- /content -->
+<script src="../language-toggle.js"></script>
 
 
 

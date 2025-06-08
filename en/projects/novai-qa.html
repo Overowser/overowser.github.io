@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Novai QA: Building a Spoiler-Free Novel Question Answering System – Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../#"> 
+<span class="menu-text">Français</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a>
+  <ul class="collapse">
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge">The Challenge</a></li>
+  <li><a href="#my-solution" id="toc-my-solution" class="nav-link" data-scroll-target="#my-solution">My Solution</a></li>
+  </ul></li>
+  <li><a href="#technical-architecture" id="toc-technical-architecture" class="nav-link" data-scroll-target="#technical-architecture">Technical Architecture</a>
+  <ul class="collapse">
+  <li><a href="#system-design-philosophy" id="toc-system-design-philosophy" class="nav-link" data-scroll-target="#system-design-philosophy">System Design Philosophy</a></li>
+  <li><a href="#core-components-deep-dive" id="toc-core-components-deep-dive" class="nav-link" data-scroll-target="#core-components-deep-dive">Core Components Deep Dive</a></li>
+  </ul></li>
+  <li><a href="#implementation-challenges-solutions" id="toc-implementation-challenges-solutions" class="nav-link" data-scroll-target="#implementation-challenges-solutions">Implementation Challenges &amp; Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-handling-very-long-novels" id="toc-challenge-1-handling-very-long-novels" class="nav-link" data-scroll-target="#challenge-1-handling-very-long-novels">Challenge 1: Handling Very Long Novels</a></li>
+  <li><a href="#challenge-2-context-preservation-across-chunks" id="toc-challenge-2-context-preservation-across-chunks" class="nav-link" data-scroll-target="#challenge-2-context-preservation-across-chunks">Challenge 2: Context Preservation Across Chunks</a></li>
+  <li><a href="#challenge-3-character-name-variations" id="toc-challenge-3-character-name-variations" class="nav-link" data-scroll-target="#challenge-3-character-name-variations">Challenge 3: Character Name Variations</a></li>
+  <li><a href="#challenge-4-spoiler-boundary-precision" id="toc-challenge-4-spoiler-boundary-precision" class="nav-link" data-scroll-target="#challenge-4-spoiler-boundary-precision">Challenge 4: Spoiler Boundary Precision</a></li>
+  </ul></li>
+  <li><a href="#performance-analysis" id="toc-performance-analysis" class="nav-link" data-scroll-target="#performance-analysis">Performance Analysis</a>
+  <ul class="collapse">
+  <li><a href="#metrics-benchmarks" id="toc-metrics-benchmarks" class="nav-link" data-scroll-target="#metrics-benchmarks">Metrics &amp; Benchmarks</a></li>
+  <li><a href="#scalability-considerations" id="toc-scalability-considerations" class="nav-link" data-scroll-target="#scalability-considerations">Scalability Considerations</a></li>
+  </ul></li>
+  <li><a href="#user-experience-design" id="toc-user-experience-design" class="nav-link" data-scroll-target="#user-experience-design">User Experience Design</a>
+  <ul class="collapse">
+  <li><a href="#interface-philosophy" id="toc-interface-philosophy" class="nav-link" data-scroll-target="#interface-philosophy">Interface Philosophy</a></li>
+  <li><a href="#interaction-patterns" id="toc-interaction-patterns" class="nav-link" data-scroll-target="#interaction-patterns">Interaction Patterns</a></li>
+  </ul></li>
+  <li><a href="#technical-stack-dependencies" id="toc-technical-stack-dependencies" class="nav-link" data-scroll-target="#technical-stack-dependencies">Technical Stack &amp; Dependencies</a>
+  <ul class="collapse">
+  <li><a href="#core-technologies" id="toc-core-technologies" class="nav-link" data-scroll-target="#core-technologies">Core Technologies</a></li>
+  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link" data-scroll-target="#hardware-requirements">Hardware Requirements</a></li>
+  </ul></li>
+  <li><a href="#development-retrospective" id="toc-development-retrospective" class="nav-link" data-scroll-target="#development-retrospective">Development Retrospective</a></li>
+  <li><a href="#lessons-learned-future-directions" id="toc-lessons-learned-future-directions" class="nav-link" data-scroll-target="#lessons-learned-future-directions">Lessons Learned &amp; Future Directions</a>
+  <ul class="collapse">
+  <li><a href="#key-insights" id="toc-key-insights" class="nav-link" data-scroll-target="#key-insights">Key Insights</a></li>
+  <li><a href="#future-enhancements" id="toc-future-enhancements" class="nav-link" data-scroll-target="#future-enhancements">Future Enhancements</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Novai QA: Building a Spoiler-Free Novel Question Answering System</h1>
+<p class="subtitle lead">A RAG-based approach to long-form literature analysis</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p><strong>Novai QA</strong> represents a novel approach to handling one of the most challenging problems in literature discussion: spoiler management. This Retrieval-Augmented Generation (RAG) system enables readers to ask questions about web novels while maintaining strict spoiler-free boundaries based on their current reading progress.</p>
+<section id="the-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="the-challenge">The Challenge</h3>
+<p>Long-form web novels, particularly those from platforms like novelfull.com, often span thousands of chapters with complex character relationships and intricate plot developments. Readers frequently want to:</p>
+<ul>
+<li>Clarify character relationships without spoiling future developments</li>
+<li>Understand complex world-building elements</li>
+<li>Get refreshers on past events without re-reading entire sections</li>
+<li>Discuss plot points with confidence in spoiler safety</li>
+</ul>
+<p>Traditional approaches fail because they either: 1. Provide no spoiler protection 2. Require manual content curation 3. Cannot handle the scale of very long novels 4. Lack the contextual understanding needed for nuanced questions</p>
+</section>
+<section id="my-solution" class="level3">
+<h3 class="anchored" data-anchor-id="my-solution">My Solution</h3>
+<p>I developed a sophisticated RAG pipeline that combines:</p>
+<ul>
+<li><strong>Intelligent Web Scraping</strong> for automated content acquisition</li>
+<li><strong>Hybrid Retrieval Systems</strong> mixing semantic and keyword-based search</li>
+<li><strong>Chapter-Based Spoiler Filtering</strong> for user progress awareness</li>
+<li><strong>Local LLM Integration</strong> for privacy and control</li>
+<li><strong>Context-Aware Chunking</strong> for optimal information retrieval</li>
+</ul>
+</section>
+</section>
+<section id="technical-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
+<section id="system-design-philosophy" class="level3">
+<h3 class="anchored" data-anchor-id="system-design-philosophy">System Design Philosophy</h3>
+<p>The architecture follows a modular pipeline design, where each component can be independently optimized and replaced:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/NovaiQA-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Novai QA Workflow</figcaption>
+</figure>
+</div>
+</section>
+<section id="core-components-deep-dive" class="level3">
+<h3 class="anchored" data-anchor-id="core-components-deep-dive">Core Components Deep Dive</h3>
+<section id="web-scraping-module-scraper.py" class="level4">
+<h4 class="anchored" data-anchor-id="web-scraping-module-scraper.py">1. Web Scraping Module (<code>scraper.py</code>)</h4>
+<p>The scraping system handles the complex task of extracting novel content from novelfull.com while managing:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> refresh_database():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Interactive novel discovery and batch content extraction</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># User-guided novel selection</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    keyword <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please enter a keyword to search for novels: "</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cloudflare-aware scraping with fake headers</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> header.generate()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    connector <span class="op">=</span> aiohttp.TCPConnector(limit<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Concurrent chapter extraction</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    tasks <span class="op">=</span> [get_page_content(session, url) <span class="cf">for</span> url <span class="kw">in</span> chapter_urls]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    chapter_contents <span class="op">=</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>tasks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Features:</strong><br>
+- <strong>Cloudflare Protection Handling</strong>: Dynamic header generation and connection pooling<br>
+- <strong>Concurrent Processing</strong>: Async operations for efficient batch downloads<br>
+- <strong>Content Validation</strong>: Automatic detection and re-processing of failed downloads<br>
+- <strong>Database Integration</strong>: Direct insertion with conflict resolution</p>
+</section>
+<section id="intelligent-chunking-system-chunker.py" class="level4">
+<h4 class="anchored" data-anchor-id="intelligent-chunking-system-chunker.py">2. Intelligent Chunking System (<code>chunker.py</code>)</h4>
+<p>The chunking algorithm represents one of the most sophisticated aspects of the system:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> chunk_text(text, max_chunk_size<span class="op">=</span><span class="dv">512</span>, overlap<span class="op">=</span><span class="dv">200</span>, tokenizer<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Adaptive chunking with context preservation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    paragraphs <span class="op">=</span> segment_text(text, max_chunk_size, overlap, tokenizer)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sophisticated overlap management</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> current_chunk_size <span class="op">&lt;=</span> size <span class="op">+</span> overlap:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> current_chunk_size <span class="op">&lt;=</span> max_chunk_size <span class="op">-</span> paragraphs[j][<span class="dv">1</span>]:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            current_chunk.insert(<span class="dv">0</span>, paragraphs[j][<span class="dv">0</span>])</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            current_chunk_size <span class="op">+=</span> paragraphs[j][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Algorithm Design:</strong><br>
+- <strong>Multi-Level Fallback</strong>: Paragraph → Sentence → Sub-sentence segmentation<br>
+- <strong>Context-Aware Overlap</strong>: Intelligent boundary detection to preserve meaning<br>
+- <strong>Token-Precise Sizing</strong>: Uses actual model tokenizer for accurate size calculation<br>
+- <strong>Adaptive Processing</strong>: Handles varying content structures automatically</p>
+</section>
+<section id="hybrid-retrieval-system-retriever.py" class="level4">
+<h4 class="anchored" data-anchor-id="hybrid-retrieval-system-retriever.py">3. Hybrid Retrieval System (<code>retriever.py</code>)</h4>
+<p>The retrieval system combines two complementary approaches:</p>
+<p><strong>Semantic Search (ChromaDB):</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retrieve_context_chroma(query, novel_name, model, spoiler_threshold<span class="op">=</span><span class="va">None</span>, k<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    query_prompt <span class="op">=</span> <span class="st">"Represent this sentence for searching relevant passages: "</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    query_vector <span class="op">=</span> model.encode(query_prompt <span class="op">+</span> query)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    query_vector <span class="op">=</span> query_vector <span class="op">/</span> np.linalg.norm(query_vector)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> spoiler_threshold:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> collection.query(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            query_embeddings<span class="op">=</span>[query_vector.tolist()],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            where<span class="op">=</span>{<span class="st">"chapter_id"</span>: {<span class="st">"$lte"</span>: spoiler_threshold}}</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Keyword Search (BM25):</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retrieve_context_bm25(query, novel_name, spoiler_threshold<span class="op">=</span><span class="va">None</span>, k<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Advanced preprocessing pipeline</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    query_tokens <span class="op">=</span> preprocess(query)  <span class="co"># Lemmatization + POS tagging</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    bm25 <span class="op">=</span> BM25Okapi(tokenized_docs)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    scores <span class="op">=</span> bm25.get_scores(query_tokens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Fusion Strategy:</strong> The system combines results from both methods, leveraging the strengths of each:<br>
+- Semantic search excels at conceptual queries and synonyms<br>
+- BM25 captures exact name matches and specific terminology<br>
+- Combined results provide comprehensive coverage</p>
+</section>
+<section id="spoiler-aware-filtering" class="level4">
+<h4 class="anchored" data-anchor-id="spoiler-aware-filtering">4. Spoiler-Aware Filtering</h4>
+<p>The spoiler protection mechanism operates at the database query level for efficiency:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chapter-based filtering in PostgreSQL</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cursor.execute(<span class="st">"""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT chunks.id, chunks.chunk_content </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM chunks </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN chapters ON chunks.chapter_id = chapters.id </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE chapters.novel_id = </span><span class="sc">%s</span><span class="st"> AND chapters.chapter_number &lt;= </span><span class="sc">%s</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>, (novel_id, spoiler_threshold))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This approach ensures:<br>
+- <strong>Database-Level Efficiency</strong>: Filtering happens during retrieval, not post-processing<br>
+- <strong>Precise Control</strong>: Chapter-granular spoiler boundaries<br>
+- <strong>User Agency</strong>: Optional spoiler protection based on user preference</p>
+</section>
+<section id="response-generation-generator.py" class="level4">
+<h4 class="anchored" data-anchor-id="response-generation-generator.py">5. Response Generation (<code>generator.py</code>)</h4>
+<p>The generation system uses carefully crafted prompts to ensure grounded responses:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">"""You are a RAG system designed to answer questions about novels </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">using only the retrieved excerpts from the book. Your responses must be grounded </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">in the supplied content, without guessing or adding external information."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Features:</strong><br>
+- <strong>Strict Grounding</strong>: Responses limited to retrieved content only<br>
+- <strong>Natural Language</strong>: No exposure of system mechanics to users<br>
+- <strong>Thinking Chain Handling</strong>: Special processing for reasoning-based models<br>
+- <strong>Graceful Uncertainty</strong>: Honest admission when information isn’t available</p>
+</section>
+</section>
+</section>
+<section id="implementation-challenges-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-challenges-solutions">Implementation Challenges &amp; Solutions</h2>
+<section id="challenge-1-handling-very-long-novels" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-handling-very-long-novels">Challenge 1: Handling Very Long Novels</h3>
+<p><strong>Problem</strong>: Novels with 1000+ chapters generate tens of thousands of chunks, making retrieval computationally expensive.</p>
+<p><strong>Solution</strong>:<br>
+- <strong>Hierarchical Filtering</strong>: Database-level novel and chapter filtering before semantic search<br>
+- <strong>Batch Processing</strong>: Optimized embedding generation with CUDA acceleration<br>
+- <strong>Connection Pooling</strong>: Efficient database resource management</p>
+</section>
+<section id="challenge-2-context-preservation-across-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-context-preservation-across-chunks">Challenge 2: Context Preservation Across Chunks</h3>
+<p><strong>Problem</strong>: Critical information often spans paragraph boundaries, leading to fragmented context.</p>
+<p><strong>Solution</strong>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intelligent overlap with context awareness</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> current_chunk_size <span class="op">&lt;=</span> size <span class="op">+</span> overlap:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="kw">and</span> current_chunk_size <span class="op">&lt;=</span> max_chunk_size <span class="op">-</span> paragraphs[j][<span class="dv">1</span>]:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        current_chunk.insert(<span class="dv">0</span>, paragraphs[j][<span class="dv">0</span>])  <span class="co"># Add previous context</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This ensures each chunk contains sufficient context for standalone comprehension.</p>
+</section>
+<section id="challenge-3-character-name-variations" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-character-name-variations">Challenge 3: Character Name Variations</h3>
+<p><strong>Problem</strong>: Web novels often use multiple names/titles for characters, making retrieval inconsistent.</p>
+<p><strong>Solution</strong>: Hybrid retrieval system where:<br>
+- BM25 catches exact name matches and variations<br>
+- Semantic search captures conceptual references<br>
+- Combined results ensure comprehensive character coverage</p>
+</section>
+<section id="challenge-4-spoiler-boundary-precision" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-4-spoiler-boundary-precision">Challenge 4: Spoiler Boundary Precision</h3>
+<p><strong>Problem</strong>: Determining exact spoiler boundaries while maintaining retrieval efficiency.</p>
+<p><strong>Solution</strong>: Chapter-level granularity with database-level filtering:<br>
+- <strong>User Control</strong>: Explicit chapter specification<br>
+- <strong>Conservative Approach</strong>: When uncertain, prioritize spoiler safety<br>
+- <strong>Efficient Implementation</strong>: PostgreSQL query optimization</p>
+</section>
+</section>
+<section id="performance-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="performance-analysis">Performance Analysis</h2>
+<section id="metrics-benchmarks" class="level3">
+<h3 class="anchored" data-anchor-id="metrics-benchmarks">Metrics &amp; Benchmarks</h3>
+<p><strong>Chunking Performance:</strong><br>
+- Average novel (500 chapters): ~15-20 minutes processing time<br>
+- Chunk generation: ~5,000-8,000 chunks per novel<br>
+- Memory usage: ~2-4GB during processing peak</p>
+<p><strong>Retrieval Speed:</strong><br>
+- Query processing: &lt;2 seconds average<br>
+- Hybrid search: 10 chunks from each method (20 total)<br>
+- Database queries: &lt;100ms with proper indexing</p>
+<p><strong>Response Quality:</strong><br>
+- Grounded accuracy: High adherence to source material<br>
+- Contextual coherence: Strong performance due to overlap strategy<br>
+- Spoiler safety: 100% when threshold properly set</p>
+</section>
+<section id="scalability-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="scalability-considerations">Scalability Considerations</h3>
+<p><strong>Current Limits:</strong> - Single novel focus (by design)<br>
+- GPU memory requirements for embeddings<br>
+- PostgreSQL storage scaling with novel count</p>
+<p><strong>Optimization Opportunities:</strong><br>
+- Caching frequently accessed chunks<br>
+- Pre-computed embeddings and for common queries<br>
+- Preprocessed text (lemmatized + POS tagged) for common queries<br>
+- Distributed processing for multiple novels</p>
+</section>
+</section>
+<section id="user-experience-design" class="level2">
+<h2 class="anchored" data-anchor-id="user-experience-design">User Experience Design</h2>
+<section id="interface-philosophy" class="level3">
+<h3 class="anchored" data-anchor-id="interface-philosophy">Interface Philosophy</h3>
+<p>The Gradio interface prioritizes simplicity while providing essential controls:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(title<span class="op">=</span><span class="st">"Novel Assistant Chatbot"</span>, theme<span class="op">=</span>gr.themes.Soft()) <span class="im">as</span> demo:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    novel_name <span class="op">=</span> gr.Textbox(label<span class="op">=</span><span class="st">"Novel Name"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    spoiler_threshold <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Current Chapter (optional)"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    chatbot <span class="op">=</span> gr.Chatbot(height<span class="op">=</span><span class="dv">500</span>, bubble_full_width<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/novaiqa-interface.png" class="img-fluid" alt="Novai QA Interface"> <em>Figure: Novai QA interface upon launch, showcasing the minimalist design and spoiler control input.</em></p>
+<p><strong>Design Principles:</strong><br>
+- <strong>Minimal Cognitive Load</strong>: Essential controls only<br>
+- <strong>Clear Spoiler Control</strong>: Obvious chapter input mechanism<br>
+- <strong>Conversational Flow</strong>: Natural chat interface<br>
+- <strong>Immediate Feedback</strong>: Real-time response generation</p>
+</section>
+<section id="interaction-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="interaction-patterns">Interaction Patterns</h3>
+<p><strong>Typical User Flow:</strong><br>
+1. <strong>Novel Selection</strong>: Enter novel name (exact match required)<br>
+2. <strong>Progress Setting</strong>: Specify current chapter (optional but recommended)<br>
+3. <strong>Natural Querying</strong>: Ask questions in conversational language<br>
+4. <strong>Iterative Exploration</strong>: Follow up with related questions</p>
+<p><strong>Example Interactions:</strong></p>
+<pre><code>User: "Who is the main character in Supreme Magus?"
+System: "Based on the story content, the main character is Lith..."
+
+User: "What are his abilities?"
+System: "Lith demonstrates several key abilities including..."</code></pre>
+</section>
+</section>
+<section id="technical-stack-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="technical-stack-dependencies">Technical Stack &amp; Dependencies</h2>
+<section id="core-technologies" class="level3">
+<h3 class="anchored" data-anchor-id="core-technologies">Core Technologies</h3>
+<p><strong>Backend Framework:</strong><br>
+- <strong>Python 3.12+</strong>: Core development language<br>
+- <strong>PostgreSQL</strong>: Primary data storage<br>
+- <strong>ChromaDB</strong>: Vector similarity search<br>
+- <strong>Ollama</strong>: Local LLM serving</p>
+<p><strong>Machine Learning:</strong><br>
+- <strong>SentenceTransformers</strong>: Embedding generation<br>
+- <strong>NLTK</strong>: Text preprocessing pipeline<br>
+- <strong>rank-bm25</strong>: Keyword search implementation</p>
+<p><strong>Web Technologies:</strong><br>
+- <strong>Gradio</strong>: Interactive interface<br>
+- <strong>aiohttp</strong>: Async web scraping<br>
+- <strong>BeautifulSoup</strong>: HTML parsing</p>
+</section>
+<section id="hardware-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="hardware-requirements">Hardware Requirements</h3>
+<p><strong>Minimum Specifications:</strong><br>
+- 16GB RAM (for embedding models)<br>
+- CUDA-compatible GPU (recommended)<br>
+- 10GB+ storage (varies by novel count)<br>
+- Stable internet (for initial scraping)</p>
+<p><strong>Optimal Configuration:</strong><br>
+- 32GB+ RAM<br>
+- RTX 3080/4080 or equivalent<br>
+- SSD storage for database performance<br>
+- High-bandwidth internet connection</p>
+</section>
+</section>
+<section id="development-retrospective" class="level2">
+<h2 class="anchored" data-anchor-id="development-retrospective">Development Retrospective</h2>
+<ul>
+<li><strong>Chunking Complexity Underestimated</strong>: Initially assumed to be a straightforward task, implementing overlap-based chunking proved significantly more complex. Developed a custom solution after facing multiple edge cases in context preservation.<br>
+</li>
+<li><strong>Vector Store Exploration</strong>: Started with FAISS but abandoned it due to lack of native metadata filtering. Considered Milvus, but it was unavailable on Windows at the time of development.<br>
+</li>
+<li><strong>Hybrid Retrieval Realization</strong>: BM25 was introduced to supplement semantic search but yielded poor results without lemmatization. Effective lemmatization required POS tagging, which added processing overhead.<br>
+</li>
+<li><strong>Hardware Impact on Embeddings</strong>: Encoding ~1000 chapters with a GPU took ~40 minutes; estimated CPU time exceeded 8 hours. Highlighted the critical performance gap between CPU and CUDA-enabled hardware.<br>
+</li>
+<li><strong>Database Migration</strong>: Transitioned from SQLite to PostgreSQL for robust filtering and relational querying. However, ChromaDB continued using SQLite3 locally as its backend.<br>
+</li>
+<li><strong>Operational Logging</strong>: Introduced application-level logging to monitor scraping, chunking, and retrieval processes more systematically.</li>
+</ul>
+</section>
+<section id="lessons-learned-future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned-future-directions">Lessons Learned &amp; Future Directions</h2>
+<section id="key-insights" class="level3">
+<h3 class="anchored" data-anchor-id="key-insights">Key Insights</h3>
+<ol type="1">
+<li><strong>Chunking Strategy Matters</strong>: The quality of text segmentation directly impacts retrieval quality</li>
+<li><strong>Hybrid Approaches Win</strong>: Combining semantic and keyword search provides superior coverage</li>
+<li><strong>User Agency is Critical</strong>: Spoiler control must be user-driven, not system-assumed</li>
+<li><strong>Local Processing Benefits</strong>: Privacy and control advantages outweigh cloud API convenience</li>
+</ol>
+</section>
+<section id="future-enhancements" class="level3">
+<h3 class="anchored" data-anchor-id="future-enhancements">Future Enhancements</h3>
+<p><strong>Technical Improvements:</strong><br>
+- <strong>Advanced Reranking</strong>: LLM-based relevance scoring for retrieved content<br>
+- <strong>Multi-Novel Support</strong>: Concurrent handling of multiple novel sources<br>
+- <strong>Multi-Turn Conversation</strong>: Context-aware processing for follow-up queries<br>
+- <strong>Conversation Memory</strong>: Persistent context across chat sessions<br>
+- <strong>Auto-Update System</strong>: Periodic content synchronization with novel databases</p>
+<p><strong>User Experience:</strong><br>
+- <strong>Progressive Web App</strong>: Mobile-optimized interface<br>
+- <strong>Reading Progress Integration</strong>: Automatic chapter tracking<br>
+- <strong>Social Features</strong>: Shared discussions with spoiler awareness<br>
+- <strong>Personalization</strong>: User preference learning and adaptation</p>
+<p><strong>Scalability &amp; Performance:</strong><br>
+- <strong>Caching Layer</strong>: Redis integration for frequent queries<br>
+- <strong>Distributed Processing</strong>: Multi-GPU embedding generation<br>
+- <strong>API Development</strong>: REST endpoints for third-party integrations<br>
+- <strong>Containerization</strong>: Docker deployment for easy scaling</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The Novai QA project demonstrates the practical application of modern NLP techniques to solve real-world problems in digital literature consumption. By combining web scraping, advanced text processing, hybrid retrieval systems, and local LLM generation, the system provides a unique solution to the spoiler management challenge.</p>
+<p>The project showcases several key technical skills:<br>
+- <strong>Full-Stack Development</strong>: From database design to web interface<br>
+- <strong>NLP Pipeline Engineering</strong>: End-to-end text processing workflows<br>
+- <strong>RAG System Architecture</strong>: Modern information retrieval and generation<br>
+- <strong>Async Programming</strong>: Efficient concurrent processing<br>
+- <strong>Database Optimization</strong>: Query performance and data modeling</p>
+<p>Most importantly, it addresses a genuine user need with a thoughtful, technically sound approach that prioritizes user control and content safety.</p>
+<hr>
+<p><em>This project is part of my portfolio demonstrating expertise in NLP, RAG systems, and full-stack development. The complete codebase and documentation are available on <a href="https://github.com/Overowser/Novai-QA">GitHub</a>.</em></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script src="../language-toggle.js"></script>
+
+
+
+
+</body></html>
