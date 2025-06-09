@@ -61,6 +61,7 @@
 
 #quarto-margin-sidebar {
   background: var(--glass-bg) !important;
+  margin-top: 2rem !important;
   backdrop-filter: blur(15px) !important;
   border-radius: var(--border-radius) !important;
   border: 1px solid var(--glass-border) !important;
@@ -399,10 +400,45 @@
   display: inline-block; /* This makes the wrapper only as wide as the subtitle it contains */
   /* The .hero-section's text-align: center will center this inline-block wrapper */
 }
-  /* 
-  .navbar-en, .navbar-fr {
-    display: none;
-  } */
 
+table {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: var(--border-radius) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
 
-/* --- Gemini-added --- */
+thead th {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  padding: 1rem !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+tbody td {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  padding: 1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* First column styling for tables like your Challenges & Solutions */
+tbody td:first-child {
+  font-weight: 600;
+  color: var(--text-primary) !important;
+}
